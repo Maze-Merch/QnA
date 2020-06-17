@@ -1,2 +1,2 @@
-# related-products
-Related Products Component
+# QnA
+QnA
