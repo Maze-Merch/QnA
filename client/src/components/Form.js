@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 class Form extends Component {
   constructor() {
     super();
 
     this.state = {
-      value: ""
+      value: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,11 +14,9 @@ class Form extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState(() => {
-      return {
-        value
-      };
-    });
+    this.setState(() => ({
+      value,
+    }));
   }
 
   render() {
@@ -36,5 +34,5 @@ class Form extends Component {
 
 export default Form;
 
-const wrapper = document.getElementById("container");
+const wrapper = document.getElementById('container');
 wrapper ? ReactDOM.render(<Form />, wrapper) : false;
