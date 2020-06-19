@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class App extends Component {
   constructor() {
@@ -21,18 +20,11 @@ class App extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </form>
+      <div>
+        <h1 id="qna"> React workin!!!!</h1>
+      </div>
     );
   }
 }
 
 export default App;
-
-// const wrapper = document.getElementById('container');
-// wrapper ? ReactDOM.render(<App />, wrapper) : false;
