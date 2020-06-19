@@ -1,0 +1,83 @@
+
+/* #qna {
+  background-color: blue;
+} */
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .fa {
+  position: absolute;
+  margin-top: 5px;
+  padding: 10px;
+  pointer-events: none;
+  font-size:18px;
+}
+
+/* align glyph */
+.left-addon .fa  { left:  0px;}
+.right-addon .fa { right: 0px;}
+
+.qa-search {
+  border-radius: 0;
+  width: 100%;
+  height: 3em;
+  font-size: small;
+  font-weight: bold;
+  padding:25px;
+}
+
+.qa-title {
+font-size: small;
+padding-bottom: 15px;
+}
+.qa-title2 {
+  font-size: small;
+  font-weight: bold;
+  margin: 15px
+  }
+
+
+body {
+  margin: 10px;
+}
+
+.qa-question{
+  font-weight: bold;
+  padding: 15px;
+}
+
+.qa-thumbnail {
+  width: 100px;
+  margin:10px;
+}
+
+.qa-answer {
+  padding-left: 30px;
+}
+
+.qa-test{
+  margin-left:30px;
+  position:relative;
+}
+
+.qa-test2{
+  position: absolute;
+}
+
+.qa-button-add {
+  height: 3em;
+  margin-left:15px;
+}
+
+.qa-button-more {
+  height: 3em;
+}
+
+.qa-user {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: small;
+}
