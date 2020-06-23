@@ -24,13 +24,13 @@
   border-radius: 0;
   width: 100%;
   height: 3em;
-  font-size: small;
+  font-size:15px;
   font-weight: bold;
   padding:25px;
 }
 
 .qa-title {
-font-size: small;
+font-size: 15px;
 padding-bottom: 15px;
 }
 .qa-title2 {
@@ -41,21 +41,35 @@ padding-bottom: 15px;
 
 
 body {
-  margin: 10px;
+  margin: 30px;
 }
 
 .qa-question{
   font-weight: bold;
-  padding: 15px;
+  margin-left:30px;
+  position:relative;
+
 }
 
+.qa-thumbnails{
+  position:absolute;
+}
 .qa-thumbnail {
-  width: 100px;
+  width: auto;
+  height: 100px;
   margin:10px;
+  position:relative;
+}
+
+.qa-imgs{
+
+    width: 150px;
+    height:100px;
+    border: 1px solid black;
 }
 
 .qa-answer {
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 .qa-test{
@@ -81,3 +95,57 @@ body {
   padding-bottom: 10px;
   font-size: small;
 }
+
+.qa-question1{
+  position:relative;
+}
+
+.qa-question2{
+  position: absolute;
+}
+
+.questionList{
+  padding-top: 15px;
+}
+
+
+
+
+/* MODAL */
+/* Background effect. It covers the entire site */
+.modal {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Overlay effect: translucent background: black w/ partial opacity */
+  z-index: 1; /* Overlay effect: positioned over other containers */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  position: fixed; /* Fix position on the top-left corner*/
+  top: 0;
+  left: 0;
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 80px; /* Location of the content container */
+}
+/* Modal content */
+.modal-content {
+  background-color: white;
+  width: 70%; /* Width in proportion to its parent container*/
+  max-width: 640px; /* Max width where it stops expanding */
+  height: 70%; /* Height in proportion to its parent container */
+  margin: auto; /* Auto margin according to the element width */
+  padding: 10px;
+  border: 1px solid black;
+}
+/* Close button */
+.close {
+ color: #080808;
+ float: right; /* Positioned to the right of the parent container whichever size it is */
+ font-size: 40px;
+ font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* END - MODAL */
