@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Modal from './Modal.jsx';
 import QuestionList from './QuestionList.jsx';
+import Form from './Form.jsx';
+
 
 class App extends Component {
   constructor() {
@@ -10,8 +12,11 @@ class App extends Component {
 
       value: '',
       qcount:2,
+      acount:true,
       modal: false,
       modalInfo:"",
+      form: false,
+      formInfo:"",
       questions:{
         product_id: "5",
         results: [
@@ -172,6 +177,7 @@ class App extends Component {
         }
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleClick2 = this.handleClick2.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -187,8 +193,21 @@ class App extends Component {
       modal: !this.state.modal,
       modalInfo: info}) // true/false toggle
   }
+
+  selectForm = (info="") => {
+    this.setState({
+      form: !this.state.form,
+      formInfo: info}) // true/false toggle
+  }
+
   handleClick() {
     this.setState({qcount:this.state.qcount +2});
+    // console.log(this.state.qcount)
+  }
+
+  handleClick2() {
+    this.setState({acount:!this.state.acount});
+    console.log(this.state.acount)
     // console.log(this.state.qcount)
   }
 
@@ -196,30 +215,38 @@ class App extends Component {
     return (
       <div>
         <div id="qna">
-          <div className="qa-title">QUESTIONS AND ANWSERS</div>
+          <div className="qa-title">QUESTIONS AND ANSWERS</div>
           <div className="inner-addon right-addon">
             <i className="fa fa-search" aria-hidden="true" />
             <input
-              type="text"
-              className="qa-search"
-              placeholder="HAVE A QUESTION? SEARCH FOR ANWSERS..."
+                type="text"
+                className="qa-search"
+                placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
             />
           </div>
-        <div className="questionList">
-          <QuestionList
-          questions = {this.state.questions.results}
-          qcount = {this.state.qcount}
-          handleClick ={this.handleClick}
-          selectModal={this.selectModal}
-          />
+          <div className="questionList">
+            <QuestionList
+                questions = {this.state.questions.results}
+                qcount = {this.state.qcount}
+                acount = {this.state.acount}
+                handleClick ={this.handleClick}
+                handleClick2 ={this.handleClick2}
+                selectModal={this.selectModal}
+                selectForm={this.selectForm}
+            />
           </div>
         </div>
         <div className="model">
-             <Modal
-                 displayModal={this.state.modal}
-                 closeModal={this.selectModal}
-                 modalInfo={this.state.modalInfo}
-             />
+          <Modal
+              displayModal={this.state.modal}
+              closeModal={this.selectModal}
+              modalInfo={this.state.modalInfo}
+          />
+          <Form
+              displayForm={this.state.form}
+              closeForm={this.selectForm}
+              formInfo={this.state.formInfo}
+          />
           </div>
         </div>
     );

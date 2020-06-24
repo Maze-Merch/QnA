@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Modal = (props) => {
-  console.log('modal', props);
+  // console.log('modal', props);
 
   function displayInfo() {
     return (

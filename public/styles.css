@@ -121,6 +121,38 @@ body {
 .ansBtnContainer{
 
 }
+.qa-loadAnswers{
+  font-size: small;
+  font-weight: bold;
+  margin: 15px
+}
+
+.qa-loadAnswers:hover{
+text-decoration-line: underline;
+cursor: pointer;
+}
+
+.formBtn{
+  align-self:flex-end;
+
+}
+
+.formdiv{
+  justify-content: flex-start;
+}
+#quest{
+  height:100px;
+  margin-bottom: 15px;
+}
+.p-form{
+  margin-top: 5px;
+  margin-bottom:0px;
+  font-weight: bold;
+}
+.p-form-b{
+  margin-top: 5px;
+  margin-bottom:10px;
+}
 
 /* MODAL */
 /* Background effect. It covers the entire site */

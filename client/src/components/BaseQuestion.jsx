@@ -2,7 +2,7 @@ import React from 'react';
 import BaseAnswer from './BaseAnswer.jsx';
 
 function BaseQuestion(props) {
-  console.log('1', Object.values(props.question.answers).length);
+  // console.log('1', Object.values(props.question.answers).length);
 
   function renderAnsButton() {
     if (Object.values(props.question.answers).length < 1) {
@@ -27,7 +27,14 @@ function BaseQuestion(props) {
         sorted.unshift(sellers[j]);
       }
     }
-    const sliced = sorted.slice(0, 2);
+    console.log('ac', props.acount);
+
+    let numAsw;
+    if (props.acount === true) {
+      numAsw = sorted.slice(0, 2);
+    } else {
+      numAsw = sorted;
+    }
 
     return (
       <div className="qa-answer">
@@ -35,7 +42,7 @@ function BaseQuestion(props) {
           <b>A:</b>
         </div>
         <div>
-          {sliced.map((answer, i) => (
+          {numAsw.map((answer, i) => (
             <BaseAnswer
               key={i}
               id={answer.id}
