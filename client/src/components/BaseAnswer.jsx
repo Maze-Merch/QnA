@@ -3,7 +3,7 @@ import BasePicture from './BasePicture.jsx';
 import User from './User.jsx';
 
 function BaseAnswer(props) {
-  console.log('ans', props);
+  // console.log('ans', props);
   // console.log('pho', props.photos);
 
   return (
@@ -16,6 +16,7 @@ function BaseAnswer(props) {
             id={props.id}
             index={i}
             photo={photo}
+            selectModal={props.selectModal}
           />
         ))}
       </div>

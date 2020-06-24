@@ -1,6 +1,18 @@
 import React from 'react';
 
 const Modal = (props) => {
+  console.log('modal', props);
+
+  function displayInfo() {
+    return (
+      <div className="modal-container">
+        <img
+          className="modal-img"
+          src={props.modalInfo}
+        />
+      </div>
+    );
+  }
   const divStyle = {
     display: props.displayModal ? 'block' : 'none',
   };
@@ -25,6 +37,9 @@ const Modal = (props) => {
         >
           &times;
         </span>
+        <div className="modal-flex">
+          {displayInfo()}
+        </div>
       </div>
     </div>
   );

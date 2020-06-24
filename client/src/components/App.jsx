@@ -7,8 +7,11 @@ class App extends Component {
     super();
 
     this.state = {
+
       value: '',
+      qcount:2,
       modal: false,
+      modalInfo:"",
       questions:{
         product_id: "5",
         results: [
@@ -168,7 +171,7 @@ class App extends Component {
         ]
         }
     };
-
+    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -179,8 +182,14 @@ class App extends Component {
     }));
   }
 
-  selectModal = (info) => {
-    this.setState({modal: !this.state.modal}) // true/false toggle
+  selectModal = (info="") => {
+    this.setState({
+      modal: !this.state.modal,
+      modalInfo: info}) // true/false toggle
+  }
+  handleClick() {
+    this.setState({qcount:this.state.qcount +2});
+    // console.log(this.state.qcount)
   }
 
   render() {
@@ -198,18 +207,18 @@ class App extends Component {
           </div>
         <div className="questionList">
           <QuestionList
-          questions = {this.state.questions.results}/>
-          </div>
-          <div className="qa-title2">LOAD MORE ANWSERS</div>
-          <div clasname="qa-buttons">
-            <button className="qa-button-more">MORE ANWSERED QUESTIONS</button>
-            <button className="qa-button-add">ADD A QUESTION  + </button>
+          questions = {this.state.questions.results}
+          qcount = {this.state.qcount}
+          handleClick ={this.handleClick}
+          selectModal={this.selectModal}
+          />
           </div>
         </div>
         <div className="model">
              <Modal
                  displayModal={this.state.modal}
                  closeModal={this.selectModal}
+                 modalInfo={this.state.modalInfo}
              />
           </div>
         </div>

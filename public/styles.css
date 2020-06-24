@@ -69,7 +69,20 @@ body {
 }
 
 .qa-answer {
-  /* padding-left: 30px; */
+}
+.qa-fst-container{
+  height: 4em;
+}
+.qa-fst-btn{
+  margin-top: 10px;
+  margin-left:15px;
+  height: 3em;
+
+}
+.qa-button-add {
+  height: 3em;
+  margin-left:15px;
+  flex:end;
 }
 
 .qa-test{
@@ -81,10 +94,6 @@ body {
   position: absolute;
 }
 
-.qa-button-add {
-  height: 3em;
-  margin-left:15px;
-}
 
 .qa-button-more {
   height: 3em;
@@ -109,7 +118,9 @@ body {
 }
 
 
+.ansBtnContainer{
 
+}
 
 /* MODAL */
 /* Background effect. It covers the entire site */
@@ -128,9 +139,10 @@ body {
 /* Modal content */
 .modal-content {
   background-color: white;
-  width: 70%; /* Width in proportion to its parent container*/
+  /* width: 70%; Width in proportion to its parent container */
   max-width: 640px; /* Max width where it stops expanding */
-  height: 70%; /* Height in proportion to its parent container */
+
+  /* height: 70%; Height in proportion to its parent container */
   margin: auto; /* Auto margin according to the element width */
   padding: 10px;
   border: 1px solid black;
@@ -147,5 +159,9 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-img {
+  width: 100%; /* Width in proportion to its parent container*/
 }
 /* END - MODAL */
