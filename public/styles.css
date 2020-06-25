@@ -43,10 +43,15 @@ padding-bottom: 15px;
 body {
   margin: 30px;
 }
+.questionbody{
+  font-weight: bold;
+
+}
 
 .qa-question{
-  font-weight: bold;
   margin-left:30px;
+  margin-right:0%;
+  padding-right: 0%;
   position:relative;
 
 }
@@ -153,6 +158,24 @@ cursor: pointer;
   margin-top: 5px;
   margin-bottom:10px;
 }
+
+.formclose {
+  color: #080808;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: right;
+  height: 20px;
+  z-index: 1;
+ }
+
+ .qa-row-AnsUser{
+   width: 100%;
+ }
+ .qa-AnsUser{
+   text-align: right;
+   font-size:smaller;
+   width: 100%;
+ }
 
 /* MODAL */
 /* Background effect. It covers the entire site */

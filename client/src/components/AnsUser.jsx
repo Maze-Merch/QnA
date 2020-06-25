@@ -1,16 +1,14 @@
 import React from 'react';
 
-const moment = require('moment');
-
-function User(props) {
+function AnsUser(props) {
   // console.log('user', props);
   return (
-    <div className="qa-answer">
+    <div className="qa-AnsUser col-5">
       by
       {' '}
       <b>{props.name}</b>
       {' '}
-      {moment(props.date).format('MMMM Do YYYY')}
+      {props.date}
       {' '}
       |
       {' '}
@@ -26,10 +24,10 @@ function User(props) {
       {' '}
       |
       {' '}
-      <span>Report</span>
+      <span>Add Anwser</span>
 
     </div>
   );
 }
 
-export default User;
+export default AnsUser;

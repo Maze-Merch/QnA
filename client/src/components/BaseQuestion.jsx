@@ -1,5 +1,6 @@
 import React from 'react';
 import BaseAnswer from './BaseAnswer.jsx';
+import AnsUser from './AnsUser.jsx';
 
 function BaseQuestion(props) {
   // console.log('1', Object.values(props.question.answers).length);
@@ -27,7 +28,7 @@ function BaseQuestion(props) {
         sorted.unshift(sellers[j]);
       }
     }
-    console.log('ac', props.acount);
+    // console.log('ac', props.acount);
 
     let numAsw;
     if (props.acount === true) {
@@ -49,7 +50,7 @@ function BaseQuestion(props) {
               index={i}
               answer={answer.body}
               photos={answer.photos}
-              date={answer.data}
+              date={answer.date}
               name={answer.answerer_name}
               helpful={answer.helpfulness}
               selectModal={props.selectModal}
@@ -65,8 +66,16 @@ function BaseQuestion(props) {
       <div className="qa-test2">
         <b>Q:</b>
       </div>
-      <div className="qa-question">
-        {props.question.question_body}
+      <div className="qa-question container">
+        <div className="row qa-row-AnsUser">
+          <div className="col-7 questionbody">
+            {props.question.question_body}
+          </div>
+          <AnsUser
+            name={props.question.asker_name}
+            helpful={props.question.question_helpfulness}
+          />
+        </div>
       </div>
       {renderAnsButton()}
     </div>

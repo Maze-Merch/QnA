@@ -2,20 +2,26 @@ import React from 'react';
 
 const Form = (props) => {
   // console.log('modal', props);
-  let imgcheck = false;
-
-  function onBtnClick(e) {
-    e.preventDefault();
-    imgcheck = !imgcheck;
-    console.log(imgcheck);
-  }
 
   function addimgs() {
-    if (imgcheck === false) {
+    console.log(props.imgcheck);
+    if (props.imgcheck === true) {
+      return (
+        <div>
+          <div> ENTER PICTURE URLS BELOW:</div>
+          <input />
+          <input />
+          <input />
+          <input />
+          <input />
+        </div>
+      );
+    }
+    if (props.imgcheck === false) {
       return (
         <button
           className="mr-auto"
-          onClick={onBtnClick}
+          onClick={props.handleClick3}
         >
           UPLOAD IMAGES
         </button>
@@ -28,7 +34,9 @@ const Form = (props) => {
       <form className="">
         <h5>ASK YOUR QUESTION</h5>
         <p className="p-form-b">
-          ABOUT THE PRODUCT: XXXXXXX
+          ABOUT THE PRODUCT:
+          {' '}
+          {props.product}
         </p>
         <div>
           <p className="p-form"> Your Question (mandatory)</p>
@@ -45,7 +53,7 @@ const Form = (props) => {
           <p className="p-form">What is your nickname (mandatory)   </p>
           <input
             placeholder="Example: jackson11!"
-            required
+            // required
             size="65"
             maxLength="60"
             id="nickname"
@@ -58,7 +66,7 @@ const Form = (props) => {
           <input
             placeholder="Example: jack@email.com"
             type="email"
-            required
+            // required
             size="65"
             maxLength="60"
             id="email"
@@ -76,14 +84,6 @@ const Form = (props) => {
   const divStyle = {
     display: props.displayForm ? 'block' : 'none',
   };
-  function onBtnClick(e) {
-    e.preventDefault();
-    imgcheck = !imgcheck;
-    console.log(imgcheck);
-    const newdiv = document.createElement('div');
-    newdiv.innerHTML = 'Entry  <br><input type=\'text\' name=\'myInputs[]\'>';
-    document.getElementById(addimgs).appendChild(newdiv);
-  }
 
   function closeForm(e) {
     e.stopPropagation();
@@ -100,7 +100,7 @@ const Form = (props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <span
-          className="close"
+          className="formclose"
           onClick={closeForm}
         >
           &times;

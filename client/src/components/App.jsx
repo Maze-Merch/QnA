@@ -9,7 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
-
+      imgcheck:false,
       value: '',
       qcount:2,
       acount:true,
@@ -176,6 +176,7 @@ class App extends Component {
         ]
         }
     };
+    this.handleClick3 = this.handleClick3.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClick2 = this.handleClick2.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -202,6 +203,16 @@ class App extends Component {
 
   handleClick() {
     this.setState({qcount:this.state.qcount +2});
+    // console.log(this.state.qcount)
+  }
+
+  //for adding pictures to form, currently not working
+  handleClick3(e) {
+    e.nativeEvent.stopImmediatePropagation()
+    e.preventDefault()
+    e.stopPropagation()
+    this.setState({imgcheck:!this.state.imgcheck});
+    console.log("XXX",this.state.imgcheck)
     // console.log(this.state.qcount)
   }
 
@@ -246,6 +257,9 @@ class App extends Component {
               displayForm={this.state.form}
               closeForm={this.selectForm}
               formInfo={this.state.formInfo}
+              handleClick3={this.handleClick3}
+              imgcheck={this.state.imgcheck}
+              product={this.state.questions.product_id}
           />
           </div>
         </div>
