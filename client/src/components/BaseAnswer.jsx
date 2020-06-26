@@ -1,6 +1,6 @@
 import React from 'react';
 import BasePicture from './BasePicture.jsx';
-import User from './User.jsx';
+import AnsUser from './AnsUser.jsx';
 
 function BaseAnswer(props) {
   // console.log('ans', props);
@@ -13,15 +13,22 @@ function BaseAnswer(props) {
         {props.photos.map((photo, i) => (
           <BasePicture
             key={i}
-            id={props.id}
+            // ansid={props.ansid}
             index={i}
             photo={photo}
             selectModal={props.selectModal}
           />
         ))}
       </div>
-      <div className="qa-user">
-        <User name={props.name} date={props.date} helpful={props.helpful} />
+      <div className="qa-ansuser">
+        <AnsUser
+          name={props.name}
+          date={props.date}
+          helpful={props.helpful}
+          ansHelpSubmit={props.ansHelpSubmit}
+          ansSelectForm={props.ansSelectForm}
+          ansid={props.ansid}
+        />
       </div>
     </div>
   );

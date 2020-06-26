@@ -1,33 +1,7 @@
 import React from 'react';
 
-const Form = (props) => {
+const QuestForm = (props) => {
   // console.log('modal', props);
-
-  function addimgs() {
-    console.log(props.imgcheck);
-    if (props.imgcheck === true) {
-      return (
-        <div>
-          <div> ENTER PICTURE URLS BELOW:</div>
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
-        </div>
-      );
-    }
-    if (props.imgcheck === false) {
-      return (
-        <button
-          className="mr-auto"
-          onClick={props.handleClick3}
-        >
-          UPLOAD IMAGES
-        </button>
-      );
-    }
-  }
 
   function displayInfo() {
     return (
@@ -74,7 +48,6 @@ const Form = (props) => {
           <p className="p-form-b">For authentication reasons, you will not be emailed</p>
         </div>
         <div className="d-flex formdiv">
-          {addimgs()}
           <button className="formBtn" type="submit">SUBMIT</button>
           <button className="formBtn" type="reset">RESET</button>
         </div>
@@ -87,7 +60,7 @@ const Form = (props) => {
 
   function closeForm(e) {
     e.stopPropagation();
-    props.closeForm();
+    props.quesCloseForm();
   }
   return (
     <div
@@ -112,4 +85,4 @@ const Form = (props) => {
     </div>
   );
 };
-export default Form;
+export default QuestForm;

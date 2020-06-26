@@ -1,7 +1,6 @@
 import React from 'react';
 import BaseQuestion from './BaseQuestion.jsx';
 import baseAnswer from './baseAnswer.jsx';
-import AnsUser from './AnsUser.jsx';
 
 function QuestionList(props) {
   const unsorted = props.questions;
@@ -16,6 +15,8 @@ function QuestionList(props) {
         if (Object.values(sliced[i].answers).length > 2) {
           return (
             <div
+              role="button"
+              tabIndex="0"
               className="qa-loadAnswers"
               onClick={props.handleClick2}
             >
@@ -60,11 +61,15 @@ function QuestionList(props) {
         {sliced.map((question, i) => (
           <BaseQuestion
             key={i}
-            id={question.question_id}
+            quesid={question.question_id}
             index={i}
             question={question}
             selectModal={props.selectModal}
             acount={props.acount}
+            ansHelpSubmit={props.ansHelpSubmit}
+            quesHelpSubmit={props.quesHelpSubmit}
+            ansSelectForm={props.ansSelectForm}
+
           />
         ))}
       </div>
@@ -73,7 +78,7 @@ function QuestionList(props) {
         {renderButton()}
         <button
           className="qa-button-add"
-          onClick={() => props.selectForm()}
+          onClick={() => props.quesSelectForm()}
         >
           ADD A QUESTION  +
           {' '}

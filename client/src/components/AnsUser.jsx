@@ -1,18 +1,29 @@
 import React from 'react';
 
+const moment = require('moment');
+
 function AnsUser(props) {
   // console.log('user', props);
   return (
-    <div className="qa-AnsUser col-5">
+    <div
+      className="qa-answer"
+      ansid={props.ansid}
+    >
       by
       {' '}
       <b>{props.name}</b>
-      {' '}
-      {props.date}
+      {'  '}
+      {moment(props.date).format('MMMM Do YYYY')}
       {' '}
       |
       {' '}
-      <span>
+      <span
+        className="helpful"
+        helpnum={props.helpful}
+        ansid={props.ansid}
+        onClick={(event) => props.ansHelpSubmit(event.target
+          .parentNode.getAttribute('ansid'))}
+      >
         Helpful?
         {' '}
         <u>Yes</u>
@@ -24,7 +35,7 @@ function AnsUser(props) {
       {' '}
       |
       {' '}
-      <span>Add Anwser</span>
+      <span>Report</span>
 
     </div>
   );

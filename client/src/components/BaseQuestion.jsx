@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseAnswer from './BaseAnswer.jsx';
-import AnsUser from './AnsUser.jsx';
+import QuesUser from './QuesUser.jsx';
 
 function BaseQuestion(props) {
   // console.log('1', Object.values(props.question.answers).length);
@@ -46,7 +46,7 @@ function BaseQuestion(props) {
           {numAsw.map((answer, i) => (
             <BaseAnswer
               key={i}
-              id={answer.id}
+              ansid={answer.id}
               index={i}
               answer={answer.body}
               photos={answer.photos}
@@ -54,6 +54,7 @@ function BaseQuestion(props) {
               name={answer.answerer_name}
               helpful={answer.helpfulness}
               selectModal={props.selectModal}
+              ansHelpSubmit={props.ansHelpSubmit}
             />
           ))}
         </div>
@@ -71,9 +72,13 @@ function BaseQuestion(props) {
           <div className="col-7 questionbody">
             {props.question.question_body}
           </div>
-          <AnsUser
+          <QuesUser
+            qbody={props.question.question_body}
+            ansSelectForm={props.ansSelectForm}
+            quesHelpSubmit={props.quesHelpSubmit}
             name={props.question.asker_name}
             helpful={props.question.question_helpfulness}
+            quesid={props.question.question_id}
           />
         </div>
       </div>

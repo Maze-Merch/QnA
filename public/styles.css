@@ -49,7 +49,7 @@ body {
 }
 
 .qa-question{
-  margin-left:30px;
+  margin-left:15px;
   margin-right:0%;
   padding-right: 0%;
   position:relative;
@@ -104,10 +104,10 @@ body {
   height: 3em;
 }
 
-.qa-user {
+.qa-ansuser {
   padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: small;
+  padding-bottom: 15px;
+  font-size: smaller;
 }
 
 .qa-question1{
@@ -136,6 +136,12 @@ body {
 text-decoration-line: underline;
 cursor: pointer;
 }
+
+.addAns:hover{
+  text-decoration-line: underline;
+  cursor: pointer;
+  font-weight: bold;
+  }
 
 .formBtn{
   align-self:flex-end;
@@ -170,12 +176,24 @@ cursor: pointer;
 
  .qa-row-AnsUser{
    width: 100%;
+
  }
  .qa-AnsUser{
    text-align: right;
    font-size:smaller;
    width: 100%;
  }
+ .qa-QuesUser{
+  text-align: right;
+  font-size:smaller;
+  width: 100%;
+}
+
+ .helpful:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+    }
+
 
 /* MODAL */
 /* Background effect. It covers the entire site */
