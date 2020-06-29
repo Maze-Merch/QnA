@@ -2,7 +2,7 @@ import React from 'react';
 
 function QuesUser(props) {
   const {
-    helpful, name, quesid, qbody, quesHelpSubmit,
+    helpful, name, quesid, qbody, quesHelpSubmit, ansSelectForm,
   } = props;
   // console.log('user', props);
   return (
@@ -43,7 +43,7 @@ function QuesUser(props) {
         tabIndex={0}
         className="addAns"
         onClick={(event) => {
-          props.ansSelectForm(qbody, quesid);
+          ansSelectForm(qbody, quesid);
         }}
       >
         Add Answer

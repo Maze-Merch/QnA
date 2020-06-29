@@ -7,13 +7,6 @@ const AnsForm = (props) => {
     ansCloseForm, product, question, ansQuesId, ansSubmit, displayForm, handleClick3, imgcheck,
   } = props;
 
-  // function myFunction() {
-  //   const inpObj = document.getElementById('ansForm');
-  //   if (!inpObj.checkValidity()) {
-  //     document.getElementById('valError').innerHTML = inpObj.validationMessage;
-  //   }
-  // }
-
   function answerObj() {
     const ansemail = document.getElementById('ansemail').value;
     const ansnname = document.getElementById('ansnname').value;
@@ -35,6 +28,7 @@ const AnsForm = (props) => {
     };
     return obj;
   }
+
   function closeForm(e) {
     e.stopPropagation();
     ansCloseForm();
@@ -76,13 +70,7 @@ const AnsForm = (props) => {
       >
         <h5>Submit your Answer</h5>
         <p className="p-form-b">
-          Product:
-          {' '}
-          {product}
-          {' '}
-          |
-          {' '}
-          {question}
+          {`Product:   ${product}  |  ${question}`}
         </p>
         <div>
           <p className="p-form"> Your Anwser (mandatory)</p>

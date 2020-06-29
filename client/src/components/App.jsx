@@ -47,26 +47,21 @@ class App extends Component {
     this.handleClick2 = this.handleClick2.bind(this);
     this.ansHelpSubmit = this.ansHelpSubmit.bind(this);
     this.quesHelpSubmit = this.quesHelpSubmit.bind(this);
-
+    this.productFetcher = this.productFetcher.bind(this);
+    this.ansSubmit=this.ansSubmit.bind(this);
+    this.ansReport=this.ansReport.bind(this);
   }
 
   productFetcher(){
     fetch('http://52.26.193.201:3000/qa/5')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
-    .then(console.log("fetched"))
+    .then(data => console.log("fetched"))
   }
 
-  componentDidMount(event){
+  componentDidMount(){
     this.productFetcher();
     // console.log(this.state.questions)
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => ({
-      value,
-    }));
   }
 
   selectModal = (info="") => {
@@ -120,7 +115,10 @@ class App extends Component {
   ansReport(ansid){
     fetch(`http://52.26.193.201:3000/qa/answer/${ansid}/report`,
     {method:'PUT'}
-    ).then( response=>this.productFetcher())
+    )
+    // .catch(error=>throw(error))
+    .then( response=>{this.productFetcher()})
+    // console.log(this)
     console.log("reported!", ansid)
   }
 
@@ -134,9 +132,8 @@ ansSubmit(ansObj, quesid, event){
     },
     body:JSON.stringify(ansObj)
   })
-  // .then(response=>console.log(response))
-  .then((result)=>this.productFetcher())
-  .then(console.log("submitted"))
+  .then(response=>{this.productFetcher()})
+  .then(response=>console.log("submitted"));
 }
 
   render() {
@@ -146,6 +143,7 @@ ansSubmit(ansObj, quesid, event){
           <div className="qa-title">QUESTIONS AND ANSWERS</div>
           <div className="inner-addon right-addon">
             <i className="fa fa-search" aria-hidden="true" />
+
             <input
                 type="text"
                 className="qa-search"
@@ -169,6 +167,7 @@ ansSubmit(ansObj, quesid, event){
           </div>
         </div>
         <div className="model">
+
           <Modal
               displayModal={this.state.modal}
               closeModal={this.selectModal}

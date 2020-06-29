@@ -57,7 +57,6 @@ function QuestionList(props) {
     }
     return ('');
   }
-
   return (
     <div>
       <div className="qa-answer">
@@ -85,7 +84,6 @@ function QuestionList(props) {
         >
           ADD A QUESTION  +
           {' '}
-
         </button>
       </div>
     </div>

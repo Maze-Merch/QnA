@@ -16,7 +16,7 @@ function BaseAnswer(props) {
         {photos.map((photo, i) => (
           <BasePicture
             key={i}
-            // ansid={props.ansid}
+            ansid={ansid}
             index={i}
             photo={photo}
             selectModal={selectModal}
