@@ -1,16 +1,19 @@
 import React from 'react';
-import BaseQuestion from './BaseQuestion.jsx';
-import baseAnswer from './baseAnswer.jsx';
+import BaseQuestion from './BaseQuestion';
 
 function QuestionList(props) {
-  const unsorted = props.questions;
+  const {
+    acount, ansHelpSubmit, ansReport, ansSelectForm, handleClick, handleClick2, qcount, quesHelpSubmit, quesSelectForm, questions, selectModal,
+  } = props;
+
   // console.log('qcount', props);
 
+  const unsorted = questions;
   const sorted = unsorted.sort((a, b) => (a.question_helpfulness - b.question_helpfulness)).reverse();
-  const sliced = sorted.slice(0, props.qcount);
+  const sliced = sorted.slice(0, qcount);
 
   function renderMoreAnswers() {
-    if (props.acount === true) {
+    if (acount === true) {
       for (let i = 0; i < sliced.length; i++) {
         if (Object.values(sliced[i].answers).length > 2) {
           return (
@@ -18,7 +21,7 @@ function QuestionList(props) {
               role="button"
               tabIndex="0"
               className="qa-loadAnswers"
-              onClick={props.handleClick2}
+              onClick={handleClick2}
             >
               LOAD MORE ANSWERS
             </div>
@@ -30,7 +33,7 @@ function QuestionList(props) {
       return (
         <div
           className="qa-loadAnswers"
-          onClick={props.handleClick2}
+          onClick={handleClick2}
         >
           COLLAPSE ANSWERS
         </div>
@@ -44,7 +47,7 @@ function QuestionList(props) {
         <div className="ansBtnContainer">
           <button
             className="qa-button-more"
-            onClick={props.handleClick}
+            onClick={handleClick}
           >
             {' '}
             MORE ANSWERED QUESTIONS
@@ -61,15 +64,15 @@ function QuestionList(props) {
         {sliced.map((question, i) => (
           <BaseQuestion
             key={i}
-            quesid={question.question_id}
             index={i}
             question={question}
-            selectModal={props.selectModal}
-            acount={props.acount}
-            ansHelpSubmit={props.ansHelpSubmit}
-            quesHelpSubmit={props.quesHelpSubmit}
-            ansSelectForm={props.ansSelectForm}
-
+            acount={acount}
+            ansHelpSubmit={ansHelpSubmit}
+            ansReport={ansReport}
+            ansSelectForm={ansSelectForm}
+            quesid={question.question_id}
+            quesHelpSubmit={quesHelpSubmit}
+            selectModal={selectModal}
           />
         ))}
       </div>
@@ -78,7 +81,7 @@ function QuestionList(props) {
         {renderButton()}
         <button
           className="qa-button-add"
-          onClick={() => props.quesSelectForm()}
+          onClick={() => quesSelectForm()}
         >
           ADD A QUESTION  +
           {' '}

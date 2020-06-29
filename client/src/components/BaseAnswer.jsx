@@ -1,33 +1,37 @@
 import React from 'react';
-import BasePicture from './BasePicture.jsx';
-import AnsUser from './AnsUser.jsx';
+import BasePicture from './BasePicture';
+import AnsUser from './AnsUser';
 
 function BaseAnswer(props) {
+  const {
+    name, date, helpful, ans, ansReport, ansSelectForm, ansHelpSubmit, ansid, selectModal, photos, answer,
+  } = props;
   // console.log('ans', props);
   // console.log('pho', props.photos);
 
   return (
     <div className="qa-test singleAnswer">
-      {props.answer}
+      {answer}
       <div className="d-flex">
-        {props.photos.map((photo, i) => (
+        {photos.map((photo, i) => (
           <BasePicture
             key={i}
             // ansid={props.ansid}
             index={i}
             photo={photo}
-            selectModal={props.selectModal}
+            selectModal={selectModal}
           />
         ))}
       </div>
       <div className="qa-ansuser">
         <AnsUser
-          name={props.name}
-          date={props.date}
-          helpful={props.helpful}
-          ansHelpSubmit={props.ansHelpSubmit}
-          ansSelectForm={props.ansSelectForm}
-          ansid={props.ansid}
+          name={name}
+          date={date}
+          helpful={helpful}
+          ansHelpSubmit={ansHelpSubmit}
+          ansReport={ansReport}
+          ansSelectForm={ansSelectForm}
+          ansid={ansid}
         />
       </div>
     </div>

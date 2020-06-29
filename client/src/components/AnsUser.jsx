@@ -4,24 +4,29 @@ const moment = require('moment');
 
 function AnsUser(props) {
   // console.log('user', props);
+  const {
+    ansid, name, date, helpful, ansReport,
+    ansHelpSubmit,
+  } = props;
+
   return (
     <div
       className="qa-answer"
-      ansid={props.ansid}
+      ansid={ansid}
     >
       by
       {' '}
-      <b>{props.name}</b>
+      <b>{name}</b>
       {'  '}
-      {moment(props.date).format('MMMM Do YYYY')}
+      {moment(date).format('MMMM Do YYYY')}
       {' '}
       |
       {' '}
       <span
         className="helpful"
-        helpnum={props.helpful}
-        ansid={props.ansid}
-        onClick={(event) => props.ansHelpSubmit(event.target
+        helpnum={helpful}
+        ansid={ansid}
+        onClick={(event) => ansHelpSubmit(event.target
           .parentNode.getAttribute('ansid'))}
       >
         Helpful?
@@ -29,13 +34,20 @@ function AnsUser(props) {
         <u>Yes</u>
         {' '}
         (
-        {props.helpful}
+        {helpful}
         )
       </span>
       {' '}
       |
       {' '}
-      <span>Report</span>
+      <span
+        className="report"
+        ansid={ansid}
+        onClick={() => ansReport(event.target.getAttribute('ansid'))}
+      >
+        Report
+
+      </span>
 
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Modal from './Modal.jsx';
-import QuestionList from './QuestionList.jsx';
-import QuestForm from './QuestForm.jsx';
-import AnsForm from './AnsForm.jsx'
+import Modal from './Modal';
+import QuestionList from './QuestionList';
+import QuestForm from './QuestForm';
+import AnsForm from './AnsForm'
 
 
 class App extends Component {
@@ -18,8 +18,8 @@ class App extends Component {
       modalInfo:"",
       ansform: false,
       ansformInfo:"",
+      ansQuesId:"",
       quesform: false,
-      quesformInfo:"",
       questions:{
         product_id: "5",
         results: [
@@ -54,11 +54,12 @@ class App extends Component {
     fetch('http://52.26.193.201:3000/qa/5')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
+    .then(console.log("fetched"))
   }
 
   componentDidMount(event){
     this.productFetcher();
-    console.log(this.state.questions)
+    // console.log(this.state.questions)
   }
 
   handleChange(event) {
@@ -77,14 +78,18 @@ class App extends Component {
   quesSelectForm = (info="") => {
     this.setState({
       quesform: !this.state.quesform,
-      quesformInfo: info}) // true/false toggle
+      }) // true/false toggle
   }
 
-  ansSelectForm = (info="") => {
+  ansSelectForm = (info="", quesid) => {
+    // console.log("Xadasdasd", quesid)
     this.setState({
       ansform: !this.state.ansform,
-      ansformInfo: info}) // true/false toggle
+      ansformInfo: info,
+      ansQuesId:quesid,})
+ // true/false toggle
   }
+
   handleClick() {
     this.setState({qcount:this.state.qcount +2});
     // console.log(this.state.qcount)
@@ -112,6 +117,28 @@ class App extends Component {
     this.setState({acount:!this.state.acount});
   }
 
+  ansReport(ansid){
+    fetch(`http://52.26.193.201:3000/qa/answer/${ansid}/report`,
+    {method:'PUT'}
+    ).then( response=>this.productFetcher())
+    console.log("reported!", ansid)
+  }
+
+ansSubmit(ansObj, quesid, event){
+  event.preventDefault();
+  fetch(`http://52.26.193.201:3000/qa/${quesid}/answers`,
+  {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(ansObj)
+  })
+  // .then(response=>console.log(response))
+  .then((result)=>this.productFetcher())
+  .then(console.log("submitted"))
+}
+
   render() {
     return (
       <div>
@@ -128,15 +155,16 @@ class App extends Component {
           <div className="questionList">
             <QuestionList
                 questions = {this.state.questions.results}
-                qcount = {this.state.qcount}
-                acount = {this.state.acount}
                 handleClick ={this.handleClick}
                 handleClick2 ={this.handleClick2}
-                selectModal={this.selectModal}
-                quesSelectForm={this.quesSelectForm}
-                ansSelectForm={this.ansSelectForm}
+                acount = {this.state.acount}
                 ansHelpSubmit={this.ansHelpSubmit}
+                ansReport = {this.ansReport}
+                ansSelectForm={this.ansSelectForm}
+                qcount = {this.state.qcount}
                 quesHelpSubmit={this.quesHelpSubmit}
+                quesSelectForm={this.quesSelectForm}
+                selectModal={this.selectModal}
             />
           </div>
         </div>
@@ -149,7 +177,6 @@ class App extends Component {
           <QuestForm
               displayForm={this.state.quesform}
               quesCloseForm={this.quesSelectForm}
-              formInfo={this.state.quesformInfo}
               product={this.state.questions.product_id}
           />
           <AnsForm
@@ -160,6 +187,8 @@ class App extends Component {
               imgcheck={this.state.imgcheck}
               product={this.state.questions.product_id}
               question={this.state.ansformInfo}
+              ansQuesId={this.state.ansQuesId}
+              ansSubmit={this.ansSubmit}
           />
           </div>
         </div>

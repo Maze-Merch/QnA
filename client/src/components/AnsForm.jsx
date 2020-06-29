@@ -1,26 +1,63 @@
 import React from 'react';
 
 const AnsForm = (props) => {
-  console.log('ansForm', props);
+  // console.log('ansForm', props);
+
+  const {
+    ansCloseForm, product, question, ansQuesId, ansSubmit, displayForm, handleClick3, imgcheck,
+  } = props;
+
+  // function myFunction() {
+  //   const inpObj = document.getElementById('ansForm');
+  //   if (!inpObj.checkValidity()) {
+  //     document.getElementById('valError').innerHTML = inpObj.validationMessage;
+  //   }
+  // }
+
+  function answerObj() {
+    const ansemail = document.getElementById('ansemail').value;
+    const ansnname = document.getElementById('ansnname').value;
+    const ansbdy = document.getElementById('ansbdy').value;
+    const photoArr = [];
+    const docPhotos = document.querySelectorAll('.photo');
+    // console.log(docPhotos);
+
+    if (docPhotos.length > 0) {
+      for (let i = 0; i < 5; i++) {
+        if (docPhotos[i].value.length > 0) { photoArr.push(docPhotos[i].value); }
+      }
+    }
+    const obj = {
+      email: ansemail,
+      body: ansbdy,
+      name: ansnname,
+      photos: photoArr,
+    };
+    return obj;
+  }
+  function closeForm(e) {
+    e.stopPropagation();
+    ansCloseForm();
+  }
 
   function addimgs() {
-    if (props.imgcheck === true) {
+    if (imgcheck === true) {
       return (
         <div>
           <div> ENTER PICTURE URLS BELOW:</div>
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
+          <input className="photo" />
+          <input className="photo" />
+          <input className="photo" />
+          <input className="photo" />
+          <input className="photo" />
         </div>
       );
     }
-    if (props.imgcheck === false) {
+    if (imgcheck === false) {
       return (
         <button
           className="mr-auto"
-          onClick={props.handleClick3}
+          onClick={handleClick3}
         >
           UPLOAD IMAGES
         </button>
@@ -29,18 +66,23 @@ const AnsForm = (props) => {
   }
 
   function displayInfo() {
-    console.log(props);
+    // console.log('YYY', props);
     return (
-      <form className="">
+      <form
+        id="ansForm"
+        className=""
+        name="answerSubmit"
+        onSubmit={(event) => { ansSubmit(answerObj(), ansQuesId, event); closeForm(event); }}
+      >
         <h5>Submit your Answer</h5>
         <p className="p-form-b">
           Product:
           {' '}
-          {props.product}
+          {product}
           {' '}
           |
           {' '}
-          {props.question}
+          {question}
         </p>
         <div>
           <p className="p-form"> Your Anwser (mandatory)</p>
@@ -49,7 +91,7 @@ const AnsForm = (props) => {
             size="75"
             required
             maxLength="1000"
-            id="quest"
+            id="ansbdy"
             type="text"
           />
         </div>
@@ -57,10 +99,10 @@ const AnsForm = (props) => {
           <p className="p-form">What is your nickname (mandatory)   </p>
           <input
             placeholder="Example: jackson11!"
-            // required
+            required
             size="65"
             maxLength="60"
-            id="nickname"
+            id="ansnname"
             type="text"
           />
           <p className="p-form-b"> For privacy reasons, do not use your full name or email address</p>
@@ -70,29 +112,33 @@ const AnsForm = (props) => {
           <input
             placeholder="Example: jack@email.com"
             type="email"
-            // required
+            required
             size="65"
             maxLength="60"
-            id="email"
+            id="ansemail"
           />
           <p className="p-form-b">For authentication reasons, you will not be emailed</p>
         </div>
         <div className="d-flex formdiv">
           {addimgs()}
-          <button className="formBtn" type="submit">SUBMIT</button>
-          <button className="formBtn" type="reset">RESET</button>
+          <button
+            className="formBtn"
+            type="submit"
+          >
+            SUBMIT
+
+          </button>
+          <p
+            id="valError"
+          />
         </div>
       </form>
     );
   }
   const divStyle = {
-    display: props.displayForm ? 'block' : 'none',
+    display: displayForm ? 'block' : 'none',
   };
 
-  function closeForm(e) {
-    e.stopPropagation();
-    props.ansCloseForm();
-  }
   return (
     <div
       className="modal"

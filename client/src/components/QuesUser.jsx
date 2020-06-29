@@ -1,28 +1,30 @@
 import React from 'react';
 
 function QuesUser(props) {
-  console.log('user', props);
+  const {
+    helpful, name, quesid, qbody, quesHelpSubmit,
+  } = props;
+  // console.log('user', props);
   return (
     <div
       className="qa-QuesUser col-5"
-      quesid={props.quesid}
+      quesid={quesid}
     >
       by
-
       {' '}
       <b>
-        {props.name}
-
+        {name}
       </b>
-
       {' '}
       |
       {' '}
       <span
+        role="button"
+        tabIndex={0}
         className="helpful"
-        helpnum={props.helpful}
-        quesid={props.quesid}
-        onClick={(event) => props.quesHelpSubmit(event.target
+        helpnum={helpful}
+        quesid={quesid}
+        onClick={(event) => quesHelpSubmit(event.target
           .parentNode.getAttribute('quesid'))}
       >
         Helpful?
@@ -30,24 +32,22 @@ function QuesUser(props) {
         <u>Yes</u>
         {' '}
         (
-        {props.helpful}
+        {helpful}
         )
       </span>
       {' '}
       |
       {' '}
       <span
-        onClick={(event) => {
-          props.ansSelectForm(event.target.getAttribute('qbody'));
-          console.log('target XX', event.target.getAttribute('qbody'));
-        }}
-        qbody={props.qbody}
+        role="button"
+        tabIndex={0}
         className="addAns"
+        onClick={(event) => {
+          props.ansSelectForm(qbody, quesid);
+        }}
       >
         Add Answer
-
       </span>
-
     </div>
   );
 }

@@ -1,19 +1,28 @@
 import React from 'react';
-import BaseAnswer from './BaseAnswer.jsx';
-import QuesUser from './QuesUser.jsx';
+import BaseAnswer from './BaseAnswer';
+import QuesUser from './QuesUser';
 
 function BaseQuestion(props) {
+  const {
+    question, acount, selectModal, ansHelpSubmit, ansReport, ansSelectForm, quesHelpSubmit,
+  } = props;
+
+  const {
+    question_body, asker_name, question_helpfulness,
+    question_id,
+  } = question;
+
   // console.log('1', Object.values(props.question.answers).length);
 
   function renderAnsButton() {
-    if (Object.values(props.question.answers).length < 1) {
+    if (Object.values(question.answers).length < 1) {
       return (
         <div className="qa-fst-container">
           <button className="qa-fst-btn">BE THE FIRST TO ANSWER THIS QUESTION + </button>
         </div>
       );
     }
-    const unsorted = Object.values(props.question.answers);
+    const unsorted = Object.values(question.answers);
     const sorted = unsorted.sort((a, b) => (a.helpfulness - b.helpfulness)).reverse();
     // console.log('sorted', sorted);
     const sellers = [];
@@ -31,7 +40,7 @@ function BaseQuestion(props) {
     // console.log('ac', props.acount);
 
     let numAsw;
-    if (props.acount === true) {
+    if (acount === true) {
       numAsw = sorted.slice(0, 2);
     } else {
       numAsw = sorted;
@@ -53,8 +62,9 @@ function BaseQuestion(props) {
               date={answer.date}
               name={answer.answerer_name}
               helpful={answer.helpfulness}
-              selectModal={props.selectModal}
-              ansHelpSubmit={props.ansHelpSubmit}
+              selectModal={selectModal}
+              ansHelpSubmit={ansHelpSubmit}
+              ansReport={ansReport}
             />
           ))}
         </div>
@@ -70,15 +80,15 @@ function BaseQuestion(props) {
       <div className="qa-question container">
         <div className="row qa-row-AnsUser">
           <div className="col-7 questionbody">
-            {props.question.question_body}
+            {question_body}
           </div>
           <QuesUser
-            qbody={props.question.question_body}
-            ansSelectForm={props.ansSelectForm}
-            quesHelpSubmit={props.quesHelpSubmit}
-            name={props.question.asker_name}
-            helpful={props.question.question_helpfulness}
-            quesid={props.question.question_id}
+            qbody={question_body}
+            ansSelectForm={ansSelectForm}
+            quesHelpSubmit={quesHelpSubmit}
+            name={asker_name}
+            helpful={question_helpfulness}
+            quesid={question_id}
           />
         </div>
       </div>

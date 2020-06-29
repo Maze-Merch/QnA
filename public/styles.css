@@ -105,7 +105,7 @@ body {
 }
 
 .qa-ansuser {
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 15px;
   font-size: smaller;
 }
@@ -192,7 +192,16 @@ cursor: pointer;
  .helpful:hover{
     text-decoration-line: underline;
     cursor: pointer;
+  font-weight: bold;
+
     }
+
+    .report:hover{
+      text-decoration-line: underline;
+      cursor: pointer;
+    font-weight: bold;
+
+      }
 
 
 /* MODAL */

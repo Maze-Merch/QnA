@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Modal from './Modal.jsx';
-import QuestionList from './QuestionList.jsx';
+import Modal from './Modal';
+import QuestionList from './QuestionList';
 
 class App extends Component {
   constructor() {
