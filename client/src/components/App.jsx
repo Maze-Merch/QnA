@@ -50,6 +50,7 @@ class App extends Component {
     this.productFetcher = this.productFetcher.bind(this);
     this.ansSubmit=this.ansSubmit.bind(this);
     this.ansReport=this.ansReport.bind(this);
+    this.quesSubmit=this.quesSubmit.bind(this);
   }
 
   productFetcher(){
@@ -64,7 +65,7 @@ class App extends Component {
     // console.log(this.state.questions)
   }
 
-  selectModal = (info="") => {
+  selectModal=(info="") => {
     this.setState({
       modal: !this.state.modal,
       modalInfo: info}) // true/false toggle
@@ -136,6 +137,21 @@ ansSubmit(ansObj, quesid, event){
   .then(response=>console.log("submitted"));
 }
 
+quesSubmit(quesObj, prodId, event){
+  event.preventDefault();
+  console.log(quesObj, prodId)
+  fetch(`http://52.26.193.201:3000/qa/${prodId}`,
+  {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(quesObj)
+  })
+  .then(response=>{this.productFetcher()})
+  .then(response=>console.log("submitted"));
+}
+
   render() {
     return (
       <div>
@@ -177,6 +193,7 @@ ansSubmit(ansObj, quesid, event){
               displayForm={this.state.quesform}
               quesCloseForm={this.quesSelectForm}
               product={this.state.questions.product_id}
+              quesSubmit={this.quesSubmit}
           />
           <AnsForm
               displayForm={this.state.ansform}

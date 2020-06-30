@@ -1,4 +1,5 @@
 import React from 'react';
+// props passed from BaseQuestion
 
 function QuesUser(props) {
   const {

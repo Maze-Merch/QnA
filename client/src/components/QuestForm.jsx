@@ -2,35 +2,58 @@ import React from 'react';
 
 const QuestForm = (props) => {
   // console.log('modal', props);
+  const {
+    product, displayForm, quesCloseForm, quesSubmit,
+  } = props;
+
+  function quesObj() {
+    const quesemail = document.getElementById('quesemail').value;
+    const quesnname = document.getElementById('quesnname').value;
+    const quesbdy = document.getElementById('quesbdy').value;
+
+    const obj = {
+      email: quesemail,
+      body: quesbdy,
+      name: quesnname,
+    };
+    return obj;
+  }
+
+  function closeForm(e) {
+    e.stopPropagation();
+    quesCloseForm();
+  }
 
   function displayInfo() {
     return (
-      <form className="">
+      <form
+        className=""
+        id="quesForm"
+        onSubmit={(event) => { quesSubmit(quesObj(), { product }, event); closeForm(event); }}
+      >
         <h5>ASK YOUR QUESTION</h5>
         <p className="p-form-b">
-          ABOUT THE PRODUCT:
-          {' '}
-          {props.product}
+          {`ABOUT THE PRODUCT: ${product}`}
         </p>
         <div>
           <p className="p-form"> Your Question (mandatory)</p>
           <input
-            placeholder="Why did you like the product or not?"
+            placeholder="Enter Question here"
             size="75"
             required
             maxLength="1000"
-            id="quest"
+            id="quesbdy"
             type="text"
           />
         </div>
         <div>
-          <p className="p-form">What is your nickname (mandatory)   </p>
+          <p className="p-form">What is your nickname (mandatory)</p>
           <input
             placeholder="Example: jackson11!"
             // required
             size="65"
             maxLength="60"
-            id="nickname"
+            id="quesnname"
             type="text"
           />
           <p className="p-form-b"> For privacy reasons, do not use your full name or email address</p>
@@ -43,7 +66,7 @@ const QuestForm = (props) => {
             // required
             size="65"
             maxLength="60"
-            id="email"
+            id="quesemail"
           />
           <p className="p-form-b">For authentication reasons, you will not be emailed</p>
         </div>
@@ -55,13 +78,9 @@ const QuestForm = (props) => {
     );
   }
   const divStyle = {
-    display: props.displayForm ? 'block' : 'none',
+    display: displayForm ? 'block' : 'none',
   };
 
-  function closeForm(e) {
-    e.stopPropagation();
-    props.quesCloseForm();
-  }
   return (
     <div
       className="modal"
@@ -73,6 +92,7 @@ const QuestForm = (props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <span
+          role="button"
           className="formclose"
           onClick={closeForm}
         >
