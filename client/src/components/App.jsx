@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Modal from './Modal';
 import QuestionList from './QuestionList';
 import QuestForm from './QuestForm';
-import AnsForm from './AnsForm'
+import AnsForm from './AnsForm';
+import Search from './Search';
 
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
     super();
 
     this.state = {
+      searchfield:"",
       imgcheck:false,
       value: '',
       qcount:2,
@@ -49,9 +51,10 @@ class App extends Component {
     this.productFetcher = this.productFetcher.bind(this);
     this.qaSubmit=this.qaSubmit.bind(this);
     this.qaReport=this.qaReport.bind(this);
+    this.onSearchChange=this.onSearchChange.bind(this);
   }
   productFetcher(){
-    fetch('http://52.26.193.201:3000/qa/5?count=100')
+    fetch('http://52.26.193.201:3000/qa/5?count=1000')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
     .then(data => console.log("fetched"))
@@ -61,6 +64,12 @@ class App extends Component {
     let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
     this.productFetcher();
     // console.log(this.state.questions)
+  }
+
+  onSearchChange(event){
+    // console.log(event.target.value);
+    this.setState({searchfield:event.target.value})
+
   }
 
 
@@ -133,23 +142,21 @@ qaSubmit(submitObj, id, target, event){
   .then(response=>console.log("submitted"));
 }
 
-  render() {
+  render(){
+    const filteredQuestions=this.state.questions.results
+      .filter(question=>{return question.question_body
+        .toLowerCase().includes(this.state.searchfield.toLowerCase())})
+    // console.log(filteredQuestions);
     return (
       <div id="qnaApp">
         <div id="qna">
           <div className="qa-title">QUESTIONS AND ANSWERS</div>
-          <div className="inner-addon right-addon">
-            <i className="fa fa-search" aria-hidden="true" />
-
-            <input
-                type="text"
-                className="qa-search"
-                placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..."
-            />
-          </div>
+          <Search
+            onSearchChange={this.onSearchChange}
+          />
           <div className="questionList">
             <QuestionList
-                questions = {this.state.questions.results}
+                questions = {filteredQuestions}
                 handleClick ={this.handleClick}
                 handleClick2 ={this.handleClick2}
                 acount = {this.state.acount}
