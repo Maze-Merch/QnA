@@ -40,7 +40,7 @@ padding-bottom: 15px;
   }
 
 
-body {
+#qnaApp {
   margin: 30px;
 }
 .questionbody{
@@ -137,14 +137,10 @@ body {
   max-height: 600px;
 }
 
-
-.ansBtnContainer{
-
-}
 .qa-loadAnswers{
   font-size: small;
   font-weight: bold;
-  margin: 15px
+  margin: 0 0 15px 15px;
 }
 
 .qa-loadAnswers:hover{
@@ -152,70 +148,70 @@ text-decoration-line: underline;
 cursor: pointer;
 }
 
-.addAns:hover{
+.qaaddAns:hover{
   text-decoration-line: underline;
   cursor: pointer;
   font-weight: bold;
   }
 
-.formBtn{
+.qaformBtn{
   align-self:flex-end;
 
 }
 
-.formSpan{
+.qaformSpan{
   display: block;
   padding:0 1em 0 1em;
 }
 
-.formdiv{
+.qaformdiv{
   justify-content: flex-start;
 }
 #quesbody{
-
   height:150px;
   width: 100%;
   box-sizing:border-box;
 }
+
 #quesnname{
-
   width: 100%;
   box-sizing:border-box;
 }
+
 #quesemail{
-
   width: 100%;
   box-sizing:border-box;
 }
-#ansbody{
 
+#ansbody{
   height:150px;
   width: 100%;
   box-sizing:border-box;
 }
+
 #ansnname{
-
   width: 100%;
   box-sizing:border-box;
 }
+
 #ansemail{
-
   width: 100%;
   box-sizing:border-box;
 }
-.p-form{
+
+.qna-form{
   width: 100%;
   font-weight: bold;
   margin: 20px 0 5px 0;
 }
-.p-form-b{
+.qna-form-b{
   margin-top: 5px;
   width: 100%;
 
   margin-bottom:10px;
 }
 
-.formclose {
+.qnaformclose {
   color: #080808;
   font-size: 40px;
   font-weight: bold;
@@ -240,14 +236,14 @@ cursor: pointer;
   display: inline-block;
 }
 
- .helpful:hover{
+ .qnahelpful:hover{
     text-decoration-line: underline;
     cursor: pointer;
   font-weight: bold;
 
     }
 
-    .report:hover{
+    .qnareport:hover{
       text-decoration-line: underline;
       cursor: pointer;
     font-weight: bold;
@@ -257,7 +253,8 @@ cursor: pointer;
 
 /* MODAL */
 /* Background effect. It covers the entire site */
-.modal {
+
+.qnamodal{
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Overlay effect: translucent background: black w/ partial opacity */
   z-index: 1; /* Overlay effect: positioned over other containers */
@@ -270,8 +267,9 @@ cursor: pointer;
   padding-top: 80px; /* Location of the content container */
 }
 /* Modal content */
-.modal-content {
-  background-color: white;
+
+.qnaMC{
+    background-color: white;
   /* width: 70%; Width in proportion to its parent container */
   max-width: 640px; /* Max width where it stops expanding */
 
@@ -281,20 +279,20 @@ cursor: pointer;
   border: 1px solid black;
 }
 /* Close button */
-.close {
+.qnaclose {
  color: #080808;
  float: right; /* Positioned to the right of the parent container whichever size it is */
  font-size: 40px;
  font-weight: bold;
 }
-.close:hover,
-.close:focus {
+.qnaclose:hover,
+.qnaclose:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal-img {
+.qnamodal-img {
   width: 100%; /* Width in proportion to its parent container*/
 }
 /* END - MODAL */
