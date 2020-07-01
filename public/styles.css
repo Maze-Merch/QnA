@@ -163,20 +163,55 @@ cursor: pointer;
 
 }
 
+.formSpan{
+  display: block;
+  padding:0 1em 0 1em;
+}
+
 .formdiv{
   justify-content: flex-start;
 }
-#quest{
-  height:100px;
-  margin-bottom: 15px;
+#quesbody{
+
+  height:150px;
+  width: 100%;
+  box-sizing:border-box;
+}
+#quesnname{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#quesemail{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansbody{
+
+  height:150px;
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansnname{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansemail{
+
+  width: 100%;
+  box-sizing:border-box;
 }
 .p-form{
-  margin-top: 5px;
-  margin-bottom:0px;
+  width: 100%;
   font-weight: bold;
+  margin: 20px 0 5px 0;
 }
 .p-form-b{
   margin-top: 5px;
+  width: 100%;
+
   margin-bottom:10px;
 }
 

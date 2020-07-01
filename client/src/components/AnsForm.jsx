@@ -74,37 +74,49 @@ const AnsForm = (props) => {
         </p>
         <div>
           <p className="p-form"> Your answer (mandatory)</p>
-          <input
-            placeholder="Enter answer Here"
-            size="75"
-            required
-            maxLength="1000"
-            id="ansbdy"
-            type="text"
-          />
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Enter answer Here"
+              size="75"
+              required
+              maxLength="1000"
+              id="ansbody"
+              type="text"
+            />
+          </span>
         </div>
         <div>
           <p className="p-form">What is your nickname (mandatory)   </p>
-          <input
-            placeholder="Example: jackson11!"
-            required
-            size="65"
-            maxLength="60"
-            id="ansnname"
-            type="text"
-          />
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Example: jackson11!"
+              required
+              size="65"
+              maxLength="60"
+              id="ansnname"
+              type="text"
+            />
+          </span>
           <p className="p-form-b"> For privacy reasons, do not use your full name or email address</p>
         </div>
         <div>
           <p className="p-form"> Your email (mandatory)</p>
-          <input
-            placeholder="Example: jack@email.com"
-            type="email"
-            required
-            size="65"
-            maxLength="60"
-            id="ansemail"
-          />
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Example: jack@email.com"
+              type="email"
+              required
+              size="65"
+              maxLength="60"
+              id="ansemail"
+            />
+          </span>
           <p className="p-form-b">For authentication reasons, you will not be emailed</p>
         </div>
         <div className="d-flex formdiv">

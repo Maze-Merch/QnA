@@ -28,7 +28,6 @@ const QuestForm = (props) => {
   function displayInfo() {
     return (
       <form
-        className=""
         id="quesForm"
         onSubmit={(event) => { qaSubmit(quesObj(), { product }, 'question', event); closeForm(event); }}
       >
@@ -38,37 +37,49 @@ const QuestForm = (props) => {
         </p>
         <div>
           <p className="p-form"> Your Question (mandatory)</p>
-          <input
-            placeholder="Enter Question here"
-            size="75"
-            required
-            maxLength="1000"
-            id="quesbdy"
-            type="text"
-          />
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Enter Question here"
+              size="75"
+              required
+              maxLength="1000"
+              id="quesbody"
+              type="text"
+            />
+          </span>
         </div>
         <div>
           <p className="p-form">What is your nickname (mandatory)</p>
-          <input
-            placeholder="Example: jackson11!"
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Example: jackson11!"
             // required
-            size="65"
-            maxLength="60"
-            id="quesnname"
-            type="text"
-          />
+              size="65"
+              maxLength="60"
+              id="quesnname"
+              type="text"
+            />
+          </span>
           <p className="p-form-b"> For privacy reasons, do not use your full name or email address</p>
         </div>
         <div>
           <p className="p-form"> Your email (mandatory)</p>
-          <input
-            placeholder="Example: jack@email.com"
-            type="email"
+          <span
+            className="formSpan"
+          >
+            <input
+              placeholder="Example: jack@email.com"
+              type="email"
             // required
-            size="65"
-            maxLength="60"
-            id="quesemail"
-          />
+              size="65"
+              maxLength="60"
+              id="quesemail"
+            />
+          </span>
           <p className="p-form-b">For authentication reasons, you will not be emailed</p>
         </div>
         <div className="d-flex formdiv">

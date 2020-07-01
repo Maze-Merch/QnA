@@ -86,7 +86,7 @@ class App extends Component {
   }
 
   handleClick() {
-    this.setState({qcount:this.state.qcount +2});
+    this.setState({qcount:this.state.qcount +2000});
     // console.log(this.state.qcount)
   }
 

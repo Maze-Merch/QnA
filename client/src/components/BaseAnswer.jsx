@@ -15,7 +15,6 @@ function BaseAnswer(props) {
         className="ansA"
       >
         A:
-
       </div>
       <div
         className="aSpan"
