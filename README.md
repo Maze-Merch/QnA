@@ -1,2 +1,2 @@
 # QnA
-Question and Anwser
+Question and answer

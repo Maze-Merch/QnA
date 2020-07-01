@@ -24,13 +24,13 @@
   border-radius: 0;
   width: 100%;
   height: 3em;
-  font-size: small;
+  font-size:15px;
   font-weight: bold;
   padding:25px;
 }
 
 .qa-title {
-font-size: small;
+font-size: 15px;
 padding-bottom: 15px;
 }
 .qa-title2 {
@@ -41,43 +41,260 @@ padding-bottom: 15px;
 
 
 body {
-  margin: 10px;
+  margin: 30px;
 }
-
-.qa-question{
+.questionbody{
   font-weight: bold;
-  padding: 15px;
 }
 
+.qa-thumbnails{
+  position:absolute;
+}
 .qa-thumbnail {
-  width: 100px;
+  width: auto;
+  height: 100px;
   margin:10px;
-}
-
-.qa-answer {
-  padding-left: 30px;
-}
-
-.qa-test{
-  margin-left:30px;
   position:relative;
 }
 
-.qa-test2{
-  position: absolute;
+.qa-imgs{
+
+    width: 150px;
+    height:100px;
+    border: 1px solid black;
 }
 
+
+.qa-fst-container{
+  height: 4em;
+  margin-bottom: 10px;
+}
+.qa-fst-btn{
+  margin-top: 10px;
+  margin-left:15px;
+  height: 3em;
+
+}
 .qa-button-add {
   height: 3em;
   margin-left:15px;
+  flex:end;
 }
+
+.qnsA{
+  padding-right: 15px;
+  width: 10px;
+  font-weight: bold;
+  display: inline-block;
+  height: 100%;
+
+}
+
+
+.qSpan{
+  width: 95%;
+  display: inline-block;
+  font-weight: bold;
+
+}
+
+.ansA{
+  margin-right: 10px;
+  width: 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+
+.aSpan{
+  width: 95%;
+  display: inline-block;
+}
+
 
 .qa-button-more {
   height: 3em;
 }
 
-.qa-user {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: small;
+.qa-ansuser {
+  padding: 5px 0px 15px 30px;
+  /* padding-top: 5px; */
+  /* padding-bottom: 15px; */
+  font-size: smaller;
+
 }
+
+.qa-question1{
+  position:relative;
+}
+
+.qa-question2{
+  position: absolute;
+}
+
+.questionList{
+  padding-top: 15px;
+  max-height: 600px;
+}
+
+
+.ansBtnContainer{
+
+}
+.qa-loadAnswers{
+  font-size: small;
+  font-weight: bold;
+  margin: 15px
+}
+
+.qa-loadAnswers:hover{
+text-decoration-line: underline;
+cursor: pointer;
+}
+
+.addAns:hover{
+  text-decoration-line: underline;
+  cursor: pointer;
+  font-weight: bold;
+  }
+
+.formBtn{
+  align-self:flex-end;
+
+}
+
+.formSpan{
+  display: block;
+  padding:0 1em 0 1em;
+}
+
+.formdiv{
+  justify-content: flex-start;
+}
+#quesbody{
+
+  height:150px;
+  width: 100%;
+  box-sizing:border-box;
+}
+#quesnname{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#quesemail{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansbody{
+
+  height:150px;
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansnname{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+#ansemail{
+
+  width: 100%;
+  box-sizing:border-box;
+}
+.p-form{
+  width: 100%;
+  font-weight: bold;
+  margin: 20px 0 5px 0;
+}
+.p-form-b{
+  margin-top: 5px;
+  width: 100%;
+
+  margin-bottom:10px;
+}
+
+.formclose {
+  color: #080808;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: right;
+  height: 20px;
+  z-index: 1;
+ }
+
+ .qa-row-AnsUser{
+   width: 100%;
+
+ }
+ .qa-AnsUser{
+   text-align: right;
+   font-size:smaller;
+   width: 100%;
+ }
+ .qa-QuesUser{
+  text-align: right;
+  font-size:smaller;
+  width: 100%;
+  display: inline-block;
+}
+
+ .helpful:hover{
+    text-decoration-line: underline;
+    cursor: pointer;
+  font-weight: bold;
+
+    }
+
+    .report:hover{
+      text-decoration-line: underline;
+      cursor: pointer;
+    font-weight: bold;
+
+      }
+
+
+/* MODAL */
+/* Background effect. It covers the entire site */
+.modal {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Overlay effect: translucent background: black w/ partial opacity */
+  z-index: 1; /* Overlay effect: positioned over other containers */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  position: fixed; /* Fix position on the top-left corner*/
+  top: 0;
+  left: 0;
+  overflow: auto; /* Enable scroll if needed */
+  padding-top: 80px; /* Location of the content container */
+}
+/* Modal content */
+.modal-content {
+  background-color: white;
+  /* width: 70%; Width in proportion to its parent container */
+  max-width: 640px; /* Max width where it stops expanding */
+
+  /* height: 70%; Height in proportion to its parent container */
+  margin: auto; /* Auto margin according to the element width */
+  padding: 10px;
+  border: 1px solid black;
+}
+/* Close button */
+.close {
+ color: #080808;
+ float: right; /* Positioned to the right of the parent container whichever size it is */
+ font-size: 40px;
+ font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-img {
+  width: 100%; /* Width in proportion to its parent container*/
+}
+/* END - MODAL */
