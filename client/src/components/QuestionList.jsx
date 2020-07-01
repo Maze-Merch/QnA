@@ -3,7 +3,7 @@ import BaseQuestion from './BaseQuestion';
 
 function QuestionList(props) {
   const {
-    acount, helpSubmit, qaReport, ansSelectForm, handleClick, handleClick2, qcount, quesSelectForm, questions, selectModal,
+    acount, helpSubmit, qaReport, ansSelectForm, handleClick, handleClick2, qcount, quesSelectForm, questions, selectModal, searchfield,
   } = props;
 
   // console.log('qcount', props);
@@ -72,6 +72,7 @@ function QuestionList(props) {
             ansSelectForm={ansSelectForm}
             quesid={question.question_id}
             selectModal={selectModal}
+            searchfield={searchfield}
           />
         ))}
       </div>

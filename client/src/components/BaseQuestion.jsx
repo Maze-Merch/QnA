@@ -4,7 +4,7 @@ import QuesUser from './QuesUser';
 
 function BaseQuestion(props) {
   const {
-    question, acount, selectModal, qaReport, ansSelectForm, helpSubmit,
+    question, acount, selectModal, qaReport, ansSelectForm, helpSubmit, searchfield,
   } = props;
 
   const {
@@ -76,6 +76,22 @@ function BaseQuestion(props) {
     );
   }
 
+  function getHighlightedText(text, highlight) {
+    // Split on highlight term and include term into parts, ignore case
+    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    return (
+      <span>
+        {' '}
+        { parts.map((part, i) => (
+          <span key={i} style={part.toLowerCase() === highlight.toLowerCase() ? { backgroundColor: 'yellow' } : {}}>
+            { part }
+          </span>
+        ))}
+        {' '}
+      </span>
+    );
+  }
+
   return (
     <div>
 
@@ -89,7 +105,7 @@ function BaseQuestion(props) {
               Q:
             </span>
             {' '}
-            {question_body}
+            {getHighlightedText(question_body, searchfield)}
           </div>
         </div>
         <QuesUser

@@ -68,8 +68,9 @@ class App extends Component {
 
   onSearchChange(event){
     // console.log(event.target.value);
+    if(event.target.value.length>2){
     this.setState({searchfield:event.target.value})
-
+    }
   }
 
 
@@ -166,6 +167,7 @@ qaSubmit(submitObj, id, target, event){
                 qcount = {this.state.qcount}
                 quesSelectForm={this.quesSelectForm}
                 selectModal={this.selectModal}
+                searchfield= {this.state.searchfield}
             />
           </div>
         </div>
