@@ -5,9 +5,9 @@ const Modal = (props) => {
 
   function displayInfo() {
     return (
-      <div className="modal-container">
+      <div className="qnamodal-container">
         <img
-          className="modal-img"
+          className="qnamodal-img"
           src={props.modalInfo}
         />
       </div>
@@ -23,21 +23,21 @@ const Modal = (props) => {
   }
   return (
     <div
-      className="modal"
+      className="modal qnamodal"
       onClick={closeModal}
       style={divStyle}
     >
       <div
-        className="modal-content"
+        className="modal-content qnaMC"
         onClick={(e) => e.stopPropagation()}
       >
         <span
-          className="close"
+          className="qnaclose"
           onClick={closeModal}
         >
           &times;
         </span>
-        <div className="modal-flex">
+        <div className="qnamodal-flex">
           {displayInfo()}
         </div>
       </div>

@@ -145,16 +145,6 @@ qaSubmit(submitObj, id, target, event){
   .then(response=>{this.productFetcher()})
   .then(response=>console.log("submitted"));
 }
-  // questionFilter(){
-  //   if(this.state.searchfield.length>2){
-  //     let filteredQuestions=this.state.questions.results
-  //     .filter(question=>{return question.question_body
-  //     .toLowerCase().includes(this.state.searchfield.toLowerCase())})
-  //     } elseif (this.state.searchfield.length<=2){
-  //     let filteredQuestions = this.state.questions.results
-  //     }
-  //       return filteredQuestions
-  //     }
 
   render(){
 

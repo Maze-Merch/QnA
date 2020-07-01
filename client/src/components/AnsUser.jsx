@@ -23,7 +23,7 @@ function AnsUser(props) {
       |
       {' '}
       <span
-        className="helpful"
+        className="qnahelpful"
         helpnum={helpful}
         ansid={ansid}
         onClick={(event) => helpSubmit(event.target
@@ -41,7 +41,7 @@ function AnsUser(props) {
       |
       {' '}
       <span
-        className="report"
+        className="qnareport"
         ansid={ansid}
         onClick={() => qaReport(event.target.getAttribute('ansid'), 'anwser')}
       >

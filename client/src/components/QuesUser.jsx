@@ -19,7 +19,7 @@ function QuesUser(props) {
       <span
         role="button"
         tabIndex={0}
-        className="helpful"
+        className="qnahelpful"
         helpnum={helpful}
         quesid={quesid}
         onClick={(event) => helpSubmit(event.target
@@ -33,7 +33,7 @@ function QuesUser(props) {
       <span
         role="button"
         tabIndex={0}
-        className="addAns"
+        className="qnaaddAns"
         onClick={(event) => {
           ansSelectForm(qbody, quesid);
         }}
@@ -43,7 +43,7 @@ function QuesUser(props) {
       {' | '}
       <span
         quesid={quesid}
-        className="report"
+        className="qnareport"
         onClick={() => qaReport(event.target.getAttribute('quesid'), 'question')}
       >
         Report

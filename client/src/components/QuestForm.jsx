@@ -32,13 +32,13 @@ const QuestForm = (props) => {
         onSubmit={(event) => { qaSubmit(quesObj(), { product }, 'question', event); closeForm(event); }}
       >
         <h5>ASK YOUR QUESTION</h5>
-        <p className="p-form-b">
+        <p className="qna-form-b">
           {`ABOUT THE PRODUCT: ${product}`}
         </p>
         <div>
-          <p className="p-form"> Your Question (mandatory)</p>
+          <p className="qna-form"> Your Question (mandatory)</p>
           <span
-            className="formSpan"
+            className="qnaformSpan"
           >
             <input
               placeholder="Enter Question here"
@@ -51,9 +51,9 @@ const QuestForm = (props) => {
           </span>
         </div>
         <div>
-          <p className="p-form">What is your nickname (mandatory)</p>
+          <p className="qna-form">What is your nickname (mandatory)</p>
           <span
-            className="formSpan"
+            className="qnaformSpan"
           >
             <input
               placeholder="Example: jackson11!"
@@ -64,12 +64,12 @@ const QuestForm = (props) => {
               type="text"
             />
           </span>
-          <p className="p-form-b"> For privacy reasons, do not use your full name or email address</p>
+          <p className="qna-form-b"> For privacy reasons, do not use your full name or email address</p>
         </div>
         <div>
-          <p className="p-form"> Your email (mandatory)</p>
+          <p className="qna-form"> Your email (mandatory)</p>
           <span
-            className="formSpan"
+            className="qnaformSpan"
           >
             <input
               placeholder="Example: jack@email.com"
@@ -80,11 +80,11 @@ const QuestForm = (props) => {
               id="quesemail"
             />
           </span>
-          <p className="p-form-b">For authentication reasons, you will not be emailed</p>
+          <p className="qna-form-b">For authentication reasons, you will not be emailed</p>
         </div>
         <div className="d-flex formdiv">
-          <button className="formBtn" type="submit">SUBMIT</button>
-          <button className="formBtn" type="reset">RESET</button>
+          <button className="qnaformBtn" type="submit">SUBMIT</button>
+          <button className="qnaformBtn" type="reset">RESET</button>
         </div>
       </form>
     );
@@ -95,22 +95,22 @@ const QuestForm = (props) => {
 
   return (
     <div
-      className="modal"
+      className="modal qnamodal"
       onClick={closeForm}
       style={divStyle}
     >
       <div
-        className="modal-content"
+        className="modal-content qnaMC"
         onClick={(e) => e.stopPropagation()}
       >
         <span
           role="button"
-          className="formclose"
+          className="qnaformclose"
           onClick={closeForm}
         >
           &times;
         </span>
-        <div className="modal-flex">
+        <div className="qnamodal-flex">
           {displayInfo()}
         </div>
       </div>
