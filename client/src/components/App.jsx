@@ -45,37 +45,24 @@ class App extends Component {
     this.handleClick3 = this.handleClick3.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClick2 = this.handleClick2.bind(this);
-    this.ansHelpSubmit = this.ansHelpSubmit.bind(this);
-    this.quesHelpSubmit = this.quesHelpSubmit.bind(this);
+    this.helpSubmit = this.helpSubmit.bind(this);
     this.productFetcher = this.productFetcher.bind(this);
-    this.ansSubmit=this.ansSubmit.bind(this);
-    this.ansReport=this.ansReport.bind(this);
-    this.quesSubmit=this.quesSubmit.bind(this);
+    this.qaSubmit=this.qaSubmit.bind(this);
+    this.qaReport=this.qaReport.bind(this);
   }
-
   productFetcher(){
-    fetch('http://52.26.193.201:3000/qa/5')
+    fetch('http://52.26.193.201:3000/qa/5?count=100')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
     .then(data => console.log("fetched"))
   }
 
   componentDidMount(){
+    let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
     this.productFetcher();
     // console.log(this.state.questions)
   }
 
-  selectModal=(info="") => {
-    this.setState({
-      modal: !this.state.modal,
-      modalInfo: info}) // true/false toggle
-  }
-
-  quesSelectForm = (info="") => {
-    this.setState({
-      quesform: !this.state.quesform,
-      }) // true/false toggle
-  }
 
   ansSelectForm = (info="", quesid) => {
     // console.log("Xadasdasd", quesid)
@@ -86,67 +73,61 @@ class App extends Component {
  // true/false toggle
   }
 
+  quesSelectForm = (info="") => {
+    this.setState({
+      quesform: !this.state.quesform,
+      }) // true/false toggle
+  }
+
+  selectModal=(info="") => {
+    this.setState({
+      modal: !this.state.modal,
+      modalInfo: info}) // true/false toggle
+  }
+
   handleClick() {
     this.setState({qcount:this.state.qcount +2});
     // console.log(this.state.qcount)
-  }
-
-  ansHelpSubmit(ansid){
-    // console.log("target", ansid)
-    fetch(`http://52.26.193.201:3000/qa/answer/${ansid}/helpful`,
-    {method:'PUT'}
-    ).then( response=>this.productFetcher())
-  }
-
-  quesHelpSubmit(quesid){
-    // console.log("target", quesid)
-    fetch(`http://52.26.193.201:3000/qa/question/${quesid}/helpful`,
-    {method:'PUT'}
-    ).then( response=>this.productFetcher())
-  }
-
-  handleClick3(e) {
-    this.setState({imgcheck:!this.state.imgcheck});
   }
 
   handleClick2() {
     this.setState({acount:!this.state.acount});
   }
 
-  ansReport(ansid){
-    fetch(`http://52.26.193.201:3000/qa/answer/${ansid}/report`,
-    {method:'PUT'}
-    )
-    // .catch(error=>throw(error))
-    .then( response=>{this.productFetcher()})
-    // console.log(this)
-    console.log("reported!", ansid)
+  handleClick3(e) {
+    this.setState({imgcheck:!this.state.imgcheck});
   }
 
-ansSubmit(ansObj, quesid, event){
-  event.preventDefault();
-  fetch(`http://52.26.193.201:3000/qa/${quesid}/answers`,
-  {
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify(ansObj)
-  })
-  .then(response=>{this.productFetcher()})
-  .then(response=>console.log("submitted"));
-}
+  qaReport(id, target){
+    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/report`,
+    {method:'PUT'}
+    )
+    .then( response=>{this.productFetcher()})
+    console.log("reported!", id)
+  }
 
-quesSubmit(quesObj, prodId, event){
+  helpSubmit(id, target){
+    console.log("target", id, target)
+    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/helpful`,
+    {method:'PUT'}
+    ).then( response=>this.productFetcher())
+  }
+
+qaSubmit(submitObj, id, target, event){
   event.preventDefault();
-  console.log(quesObj, prodId)
-  fetch(`http://52.26.193.201:3000/qa/${prodId}`,
+  let url;
+  if (target === "answer"){
+    url = `http://52.26.193.201:3000/qa/${id}/answers`
+  } else if (target === "question"){
+    url = `http://52.26.193.201:3000/qa/${id}`
+  }
+  fetch(url,
   {
     method:'POST',
     headers:{
       'Content-Type':'application/json'
     },
-    body:JSON.stringify(quesObj)
+    body:JSON.stringify(submitObj)
   })
   .then(response=>{this.productFetcher()})
   .then(response=>console.log("submitted"));
@@ -154,7 +135,7 @@ quesSubmit(quesObj, prodId, event){
 
   render() {
     return (
-      <div>
+      <div id="qnaApp">
         <div id="qna">
           <div className="qa-title">QUESTIONS AND ANSWERS</div>
           <div className="inner-addon right-addon">
@@ -172,11 +153,10 @@ quesSubmit(quesObj, prodId, event){
                 handleClick ={this.handleClick}
                 handleClick2 ={this.handleClick2}
                 acount = {this.state.acount}
-                ansHelpSubmit={this.ansHelpSubmit}
-                ansReport = {this.ansReport}
+                helpSubmit={this.helpSubmit}
+                qaReport = {this.qaReport}
                 ansSelectForm={this.ansSelectForm}
                 qcount = {this.state.qcount}
-                quesHelpSubmit={this.quesHelpSubmit}
                 quesSelectForm={this.quesSelectForm}
                 selectModal={this.selectModal}
             />
@@ -193,7 +173,7 @@ quesSubmit(quesObj, prodId, event){
               displayForm={this.state.quesform}
               quesCloseForm={this.quesSelectForm}
               product={this.state.questions.product_id}
-              quesSubmit={this.quesSubmit}
+              qaSubmit={this.qaSubmit}
           />
           <AnsForm
               displayForm={this.state.ansform}
@@ -204,7 +184,7 @@ quesSubmit(quesObj, prodId, event){
               product={this.state.questions.product_id}
               question={this.state.ansformInfo}
               ansQuesId={this.state.ansQuesId}
-              ansSubmit={this.ansSubmit}
+              qaSubmit={this.qaSubmit}
           />
           </div>
         </div>

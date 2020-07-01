@@ -4,14 +4,24 @@ import AnsUser from './AnsUser';
 
 function BaseAnswer(props) {
   const {
-    name, date, helpful, ans, ansReport, ansSelectForm, ansHelpSubmit, ansid, selectModal, photos, answer,
+    name, date, helpful, ans, qaReport, ansSelectForm, helpSubmit, ansid, selectModal, photos, answer,
   } = props;
   // console.log('ans', props);
   // console.log('pho', props.photos);
 
   return (
     <div className="qa-test singleAnswer">
-      {answer}
+      <div
+        className="ansA"
+      >
+        A:
+
+      </div>
+      <div
+        className="aSpan"
+      >
+        { answer}
+      </div>
       <div className="d-flex">
         {photos.map((photo, i) => (
           <BasePicture
@@ -28,8 +38,8 @@ function BaseAnswer(props) {
           name={name}
           date={date}
           helpful={helpful}
-          ansHelpSubmit={ansHelpSubmit}
-          ansReport={ansReport}
+          helpSubmit={helpSubmit}
+          qaReport={qaReport}
           ansSelectForm={ansSelectForm}
           ansid={ansid}
         />

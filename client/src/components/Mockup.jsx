@@ -187,13 +187,13 @@ class App extends Component {
     return (
       <div>
         <div id="qna">
-          <div className="qa-title">QUESTIONS AND ANWSERS</div>
+          <div className="qa-title">QUESTIONS AND answerS</div>
           <div className="inner-addon right-addon">
             <i className="fa fa-search" aria-hidden="true" />
             <input
               type="text"
               className="qa-search"
-              placeholder="HAVE A QUESTION? SEARCH FOR ANWSERS..."
+              placeholder="HAVE A QUESTION? SEARCH FOR answerS..."
             />
           </div>
           <div>
@@ -203,7 +203,7 @@ class App extends Component {
                 A:
               </div>
               <div className="qa-test">
-                This is a anwser to a good question.
+                This is a answer to a good question.
                 <div className="qa-user"> by user123  January 1, 2019    | Helpful? Yes(2)    | Report </div>
               </div>
             </div>
@@ -215,7 +215,7 @@ class App extends Component {
                 A:
               </div>
               <div className="qa-test">
-                This is a anwser to a good question.
+                This is a answer to a good question.
                 <div className="qa-user"> by user123  January 1, 2019    | Helpful? Yes(2)    | Report </div>
                 <div> Yes, you can see in these photos.</div>
                 <div className="container d-flex align-content-start ">
@@ -229,9 +229,9 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <div className="qa-title2">LOAD MORE ANWSERS</div>
+          <div className="qa-title2">LOAD MORE answerS</div>
           <div clasname="qa-buttons">
-            <button className="qa-button-more">MORE ANWSERED QUESTIONS</button>
+            <button className="qa-button-more">MORE answerED QUESTIONS</button>
             <button className="qa-button-add">ADD A QUESTION  + </button>
           </div>
         </div>

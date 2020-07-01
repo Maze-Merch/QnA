@@ -5,8 +5,8 @@ const moment = require('moment');
 function AnsUser(props) {
   // console.log('user', props);
   const {
-    ansid, name, date, helpful, ansReport,
-    ansHelpSubmit,
+    ansid, name, date, helpful, qaReport,
+    helpSubmit,
   } = props;
 
   return (
@@ -26,8 +26,8 @@ function AnsUser(props) {
         className="helpful"
         helpnum={helpful}
         ansid={ansid}
-        onClick={(event) => ansHelpSubmit(event.target
-          .parentNode.getAttribute('ansid'))}
+        onClick={(event) => helpSubmit(event.target
+          .parentNode.getAttribute('ansid'), 'answer')}
       >
         Helpful?
         {' '}
@@ -43,12 +43,10 @@ function AnsUser(props) {
       <span
         className="report"
         ansid={ansid}
-        onClick={() => ansReport(event.target.getAttribute('ansid'))}
+        onClick={() => qaReport(event.target.getAttribute('ansid'), 'anwser')}
       >
         Report
-
       </span>
-
     </div>
   );
 }

@@ -4,7 +4,7 @@ import QuesUser from './QuesUser';
 
 function BaseQuestion(props) {
   const {
-    question, acount, selectModal, ansHelpSubmit, ansReport, ansSelectForm, quesHelpSubmit,
+    question, acount, selectModal, qaReport, ansSelectForm, helpSubmit,
   } = props;
 
   const {
@@ -18,7 +18,14 @@ function BaseQuestion(props) {
     if (Object.values(question.answers).length < 1) {
       return (
         <div className="qa-fst-container">
-          <button className="qa-fst-btn">BE THE FIRST TO ANSWER THIS QUESTION + </button>
+          <button
+            className="qa-fst-btn"
+            onClick={(event) => {
+              ansSelectForm(question_body, question_id);
+            }}
+          >
+            BE THE FIRST TO ANSWER THIS QUESTION +
+          </button>
         </div>
       );
     }
@@ -48,9 +55,6 @@ function BaseQuestion(props) {
 
     return (
       <div className="qa-answer">
-        <div className="qa-test2">
-          <b>A:</b>
-        </div>
         <div>
           {numAsw.map((answer, i) => (
             <BaseAnswer
@@ -63,8 +67,8 @@ function BaseQuestion(props) {
               name={answer.answerer_name}
               helpful={answer.helpfulness}
               selectModal={selectModal}
-              ansHelpSubmit={ansHelpSubmit}
-              ansReport={ansReport}
+              helpSubmit={helpSubmit}
+              qaReport={qaReport}
             />
           ))}
         </div>
@@ -74,23 +78,29 @@ function BaseQuestion(props) {
 
   return (
     <div>
-      <div className="qa-test2">
-        <b>Q:</b>
-      </div>
-      <div className="qa-question container">
-        <div className="row qa-row-AnsUser">
-          <div className="col-7 questionbody">
+
+      <div className="row qa-row-AnsUser">
+        <div className="col-7">
+
+          <div className="qSpan">
+            <span
+              className="qnsA"
+            >
+              Q:
+            </span>
+            {' '}
             {question_body}
           </div>
-          <QuesUser
-            qbody={question_body}
-            ansSelectForm={ansSelectForm}
-            quesHelpSubmit={quesHelpSubmit}
-            name={asker_name}
-            helpful={question_helpfulness}
-            quesid={question_id}
-          />
         </div>
+        <QuesUser
+          qbody={question_body}
+          ansSelectForm={ansSelectForm}
+          helpSubmit={helpSubmit}
+          name={asker_name}
+          helpful={question_helpfulness}
+          quesid={question_id}
+          qaReport={qaReport}
+        />
       </div>
       {renderAnsButton()}
     </div>

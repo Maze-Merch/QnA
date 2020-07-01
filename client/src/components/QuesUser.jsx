@@ -3,7 +3,7 @@ import React from 'react';
 
 function QuesUser(props) {
   const {
-    helpful, name, quesid, qbody, quesHelpSubmit, ansSelectForm,
+    helpful, name, quesid, qbody, helpSubmit, ansSelectForm, qaReport,
   } = props;
   // console.log('user', props);
   return (
@@ -11,34 +11,25 @@ function QuesUser(props) {
       className="qa-QuesUser col-5"
       quesid={quesid}
     >
-      by
-      {' '}
+      {'by '}
       <b>
         {name}
       </b>
-      {' '}
-      |
-      {' '}
+      {' | '}
       <span
         role="button"
         tabIndex={0}
         className="helpful"
         helpnum={helpful}
         quesid={quesid}
-        onClick={(event) => quesHelpSubmit(event.target
-          .parentNode.getAttribute('quesid'))}
+        onClick={(event) => helpSubmit(event.target
+          .parentNode.getAttribute('quesid'), 'question')}
       >
-        Helpful?
-        {' '}
+        {'Helpful? '}
         <u>Yes</u>
-        {' '}
-        (
-        {helpful}
-        )
+        {` (${helpful}) `}
       </span>
-      {' '}
-      |
-      {' '}
+      {' | '}
       <span
         role="button"
         tabIndex={0}
@@ -47,7 +38,15 @@ function QuesUser(props) {
           ansSelectForm(qbody, quesid);
         }}
       >
-        Add Answer
+        {' Add Answer '}
+      </span>
+      {' | '}
+      <span
+        quesid={quesid}
+        className="report"
+        onClick={() => qaReport(event.target.getAttribute('quesid'), 'question')}
+      >
+        Report
       </span>
     </div>
   );

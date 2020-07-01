@@ -4,7 +4,7 @@ const AnsForm = (props) => {
   // console.log('ansForm', props);
 
   const {
-    ansCloseForm, product, question, ansQuesId, ansSubmit, displayForm, handleClick3, imgcheck,
+    ansCloseForm, product, question, ansQuesId, qaSubmit, displayForm, handleClick3, imgcheck,
   } = props;
 
   function answerObj() {
@@ -66,16 +66,16 @@ const AnsForm = (props) => {
         id="ansForm"
         className=""
         name="answerSubmit"
-        onSubmit={(event) => { ansSubmit(answerObj(), ansQuesId, event); closeForm(event); }}
+        onSubmit={(event) => { qaSubmit(answerObj(), ansQuesId, 'answer', event); closeForm(event); }}
       >
         <h5>Submit your Answer</h5>
         <p className="p-form-b">
           {`Product:   ${product}  |  ${question}`}
         </p>
         <div>
-          <p className="p-form"> Your Anwser (mandatory)</p>
+          <p className="p-form"> Your answer (mandatory)</p>
           <input
-            placeholder="Enter Anwser Here"
+            placeholder="Enter answer Here"
             size="75"
             required
             maxLength="1000"

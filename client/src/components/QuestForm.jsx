@@ -3,7 +3,7 @@ import React from 'react';
 const QuestForm = (props) => {
   // console.log('modal', props);
   const {
-    product, displayForm, quesCloseForm, quesSubmit,
+    product, displayForm, quesCloseForm, qaSubmit,
   } = props;
 
   function quesObj() {
@@ -16,6 +16,7 @@ const QuestForm = (props) => {
       body: quesbdy,
       name: quesnname,
     };
+    console.log('questForm', obj);
     return obj;
   }
 
@@ -29,7 +30,7 @@ const QuestForm = (props) => {
       <form
         className=""
         id="quesForm"
-        onSubmit={(event) => { quesSubmit(quesObj(), { product }, event); closeForm(event); }}
+        onSubmit={(event) => { qaSubmit(quesObj(), { product }, 'question', event); closeForm(event); }}
       >
         <h5>ASK YOUR QUESTION</h5>
         <p className="p-form-b">
