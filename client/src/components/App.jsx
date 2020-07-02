@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
+    // let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
     this.productFetcher();
     // console.log(this.state.questions)
   }
@@ -100,11 +100,19 @@ class App extends Component {
 
   handleClick() {
     this.setState({qcount:this.state.qcount +2000});
+     let elem = document.getElementById("qnaApp");
+    elem.classList.add("qnaScroll");
     // console.log(this.state.qcount)
   }
 
   handleClick2() {
+
     this.setState({acount:!this.state.acount});
+    let elem = document.getElementById("qnaApp");
+    elem.classList.add("qnaScroll");
+    // let elem = document.getElementById(qnaApp);
+    // console.log(elem)
+    // elem.classList.add("qnaScroll")
   }
 
   handleClick3(e) {
@@ -127,6 +135,8 @@ class App extends Component {
   }
 
 qaSubmit(submitObj, id, target, event){
+  console.log("target",submitObj, id.product, target)
+
   event.preventDefault();
   let url;
   if (target === "answer"){

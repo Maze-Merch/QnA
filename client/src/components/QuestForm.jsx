@@ -29,7 +29,7 @@ const QuestForm = (props) => {
     return (
       <form
         id="quesForm"
-        onSubmit={(event) => { qaSubmit(quesObj(), { product }, 'question', event); closeForm(event); }}
+        onSubmit={(event) => { qaSubmit(quesObj(), product, 'question', event); closeForm(event); }}
       >
         <h5>ASK YOUR QUESTION</h5>
         <p className="qna-form-b">
@@ -45,7 +45,7 @@ const QuestForm = (props) => {
               size="75"
               required
               maxLength="1000"
-              id="quesbody"
+              id="quesbdy"
               type="text"
             />
           </span>

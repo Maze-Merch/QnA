@@ -43,6 +43,11 @@ padding-bottom: 15px;
 #qnaApp {
   margin: 30px;
 }
+
+.qnaScroll{
+  background-color: rgb(250, 245, 245);
+  overflow-y: scroll;
+}
 .questionbody{
   font-weight: bold;
 }
@@ -207,7 +212,6 @@ cursor: pointer;
 .qna-form-b{
   margin-top: 5px;
   width: 100%;
-
   margin-bottom:10px;
 }
 

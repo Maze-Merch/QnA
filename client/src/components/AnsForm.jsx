@@ -82,7 +82,7 @@ const AnsForm = (props) => {
               size="75"
               required
               maxLength="1000"
-              id="ansbody"
+              id="ansbdy"
               type="text"
             />
           </span>
