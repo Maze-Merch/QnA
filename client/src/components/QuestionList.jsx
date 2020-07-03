@@ -6,8 +6,6 @@ function QuestionList(props) {
     acount, helpSubmit, qaReport, ansSelectForm, handleClick, handleClick2, qcount, quesSelectForm, questions, selectModal, searchfield,
   } = props;
 
-  // console.log('qcount', props);
-
   const unsorted = questions;
   const sorted = unsorted.sort((a, b) => (a.question_helpfulness - b.question_helpfulness)).reverse();
   const sliced = sorted.slice(0, qcount);
@@ -32,6 +30,7 @@ function QuestionList(props) {
     } else {
       return (
         <div
+          role="button"
           className="qa-loadAnswers"
           onClick={handleClick2}
         >
@@ -46,6 +45,7 @@ function QuestionList(props) {
       return (
         <div className="ansBtnContainer">
           <button
+            type="button"
             className="qa-button-more"
             onClick={handleClick}
           >
@@ -80,6 +80,7 @@ function QuestionList(props) {
       <div className="awsContainer d-flex align-items-end">
         {renderButton()}
         <button
+          type="button"
           className="qa-button-add"
           onClick={() => quesSelectForm()}
         >

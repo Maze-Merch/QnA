@@ -12,8 +12,6 @@ function BaseQuestion(props) {
     question_id,
   } = question;
 
-  // console.log('1', Object.values(props.question.answers).length);
-
   function renderAnsButton() {
     if (Object.values(question.answers).length < 1) {
       return (
@@ -31,7 +29,6 @@ function BaseQuestion(props) {
     }
     const unsorted = Object.values(question.answers);
     const sorted = unsorted.sort((a, b) => (a.helpfulness - b.helpfulness)).reverse();
-    // console.log('sorted', sorted);
     const sellers = [];
     for (let i = 0; i < sorted.length; i++) {
       if (sorted[i].answerer_name === 'Seller') {
@@ -44,7 +41,6 @@ function BaseQuestion(props) {
         sorted.unshift(sellers[j]);
       }
     }
-    // console.log('ac', props.acount);
 
     let numAsw;
     if (acount === true) {

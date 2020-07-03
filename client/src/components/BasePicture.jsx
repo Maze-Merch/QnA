@@ -1,7 +1,6 @@
 import React from 'react';
 
 function BasePicture(props) {
-  // console.log('pho', props.photo);
   const { photo, selectModal } = props;
   return (
     <div className="d-flex">

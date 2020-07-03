@@ -1,7 +1,6 @@
 import React from 'react';
 
 const QuestForm = (props) => {
-  // console.log('modal', props);
   const {
     product, displayForm, quesCloseForm, qaSubmit,
   } = props;
@@ -16,7 +15,6 @@ const QuestForm = (props) => {
       body: quesbdy,
       name: quesnname,
     };
-    console.log('questForm', obj);
     return obj;
   }
 
@@ -57,7 +55,7 @@ const QuestForm = (props) => {
           >
             <input
               placeholder="Example: jackson11!"
-            // required
+              required
               size="65"
               maxLength="60"
               id="quesnname"
@@ -74,7 +72,7 @@ const QuestForm = (props) => {
             <input
               placeholder="Example: jack@email.com"
               type="email"
-            // required
+              required
               size="65"
               maxLength="60"
               id="quesemail"

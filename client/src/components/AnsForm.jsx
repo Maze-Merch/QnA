@@ -1,8 +1,6 @@
 import React from 'react';
 
 const AnsForm = (props) => {
-  // console.log('ansForm', props);
-
   const {
     ansCloseForm, product, question, ansQuesId, qaSubmit, displayForm, handleClick3, imgcheck,
   } = props;
@@ -13,7 +11,6 @@ const AnsForm = (props) => {
     const ansbdy = document.getElementById('ansbdy').value;
     const photoArr = [];
     const docPhotos = document.querySelectorAll('.photo');
-    // console.log(docPhotos);
 
     if (docPhotos.length > 0) {
       for (let i = 0; i < 5; i++) {
@@ -60,7 +57,6 @@ const AnsForm = (props) => {
   }
 
   function displayInfo() {
-    // console.log('YYY', props);
     return (
       <form
         id="ansForm"

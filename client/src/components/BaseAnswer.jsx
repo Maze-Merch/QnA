@@ -6,8 +6,6 @@ function BaseAnswer(props) {
   const {
     name, date, helpful, ans, qaReport, ansSelectForm, helpSubmit, ansid, selectModal, photos, answer,
   } = props;
-  // console.log('ans', props);
-  // console.log('pho', props.photos);
 
   return (
     <div className="qa-test singleAnswer">

@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Modal = (props) => {
-  // console.log('modal', props);
-
   function displayInfo() {
     return (
       <div className="qnamodal-container">

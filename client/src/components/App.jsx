@@ -57,17 +57,14 @@ class App extends Component {
     fetch('http://52.26.193.201:3000/qa/5?count=1000')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
-    .then(data => console.log("fetched"))
   }
 
   componentDidMount(){
     let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
     this.productFetcher();
-    // console.log(this.state.questions)
   }
 
   onSearchChange(event){
-    // console.log(event.target.value);
     if(event.target.value.length>2){
     this.setState({searchfield:event.target.value})
     }
@@ -76,31 +73,30 @@ class App extends Component {
       }
   }
 
-
   ansSelectForm = (info="", quesid) => {
-    // console.log("Xadasdasd", quesid)
     this.setState({
+       // true/false toggle
       ansform: !this.state.ansform,
       ansformInfo: info,
       ansQuesId:quesid,})
- // true/false toggle
   }
 
   quesSelectForm = (info="") => {
     this.setState({
+       // true/false toggle
       quesform: !this.state.quesform,
-      }) // true/false toggle
+      })
   }
 
   selectModal=(info="") => {
     this.setState({
+      // true/false toggle
       modal: !this.state.modal,
-      modalInfo: info}) // true/false toggle
+      modalInfo: info})
   }
 
   handleClick() {
     this.setState({qcount:this.state.qcount +2000});
-    // console.log(this.state.qcount)
   }
 
   handleClick2() {
@@ -116,11 +112,9 @@ class App extends Component {
     {method:'PUT'}
     )
     .then( response=>{this.productFetcher()})
-    console.log("reported!", id)
   }
 
   helpSubmit(id, target){
-    console.log("target", id, target)
     fetch(`http://52.26.193.201:3000/qa/${target}/${id}/helpful`,
     {method:'PUT'}
     ).then( response=>this.productFetcher())
@@ -143,7 +137,6 @@ qaSubmit(submitObj, id, target, event){
     body:JSON.stringify(submitObj)
   })
   .then(response=>{this.productFetcher()})
-  .then(response=>console.log("submitted"));
 }
 
   render(){

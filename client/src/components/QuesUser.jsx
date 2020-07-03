@@ -5,7 +5,6 @@ function QuesUser(props) {
   const {
     helpful, name, quesid, qbody, helpSubmit, ansSelectForm, qaReport,
   } = props;
-  // console.log('user', props);
   return (
     <div
       className="qa-QuesUser col-5"
@@ -42,6 +41,7 @@ function QuesUser(props) {
       </span>
       {' | '}
       <span
+        role="button"
         quesid={quesid}
         className="qnareport"
         onClick={() => qaReport(event.target.getAttribute('quesid'), 'question')}

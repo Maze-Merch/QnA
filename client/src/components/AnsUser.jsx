@@ -3,7 +3,6 @@ import React from 'react';
 const moment = require('moment');
 
 function AnsUser(props) {
-  // console.log('user', props);
   const {
     ansid, name, date, helpful, qaReport,
     helpSubmit,
