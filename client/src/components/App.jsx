@@ -168,31 +168,29 @@ qaSubmit(submitObj, id, target, event){
     return (
       <div id="qnaApp">
         <div className="row">
-
-        <div id="qna"><div className="qnaSpacer d-none d-lg-block col-lg-2" />
-          <div className="qa-title">QUESTIONS AND ANSWERS</div>
-          <Search
-            onSearchChange={this.onSearchChange}
-          />
-          <div className="questionList">
-            <QuestionList
-                questions = {filteredQuestions}
-                handleClick ={this.handleClick}
-                handleClick2 ={this.handleClick2}
-                acount = {this.state.acount}
-                helpSubmit={this.helpSubmit}
-                qaReport = {this.qaReport}
-                ansSelectForm={this.ansSelectForm}
-                qcount = {this.state.qcount}
-                quesSelectForm={this.quesSelectForm}
-                selectModal={this.selectModal}
-                searchfield= {this.state.searchfield}
+          <div className="qnaSpacer d-none d-lg-block col-lg-2" />
+          <div id="qna">
+            <div className="qa-title">QUESTIONS AND ANSWERS</div>
+            <Search
+              onSearchChange={this.onSearchChange}
             />
+            <div className="questionList">
+              <QuestionList
+                  questions = {filteredQuestions}
+                  handleClick ={this.handleClick}
+                  handleClick2 ={this.handleClick2}
+                  acount = {this.state.acount}
+                  helpSubmit={this.helpSubmit}
+                  qaReport = {this.qaReport}
+                  ansSelectForm={this.ansSelectForm}
+                  qcount = {this.state.qcount}
+                  quesSelectForm={this.quesSelectForm}
+                  selectModal={this.selectModal}
+                  searchfield= {this.state.searchfield}
+              />
+            </div>
           </div>
-        </div>
-
         <div className="model">
-
           <Modal
               displayModal={this.state.modal}
               closeModal={this.selectModal}
