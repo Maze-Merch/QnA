@@ -76,13 +76,7 @@ class App extends Component {
       }
   }
 
-<<<<<<< HEAD
-  ansSelectForm = (info="", quesid) => {
-=======
-
   ansSelectForm(info="", quesid){
-    // console.log("Xadasdasd", quesid)
->>>>>>> d84d908cdec5950740717f4a63fbc463c6e85903
     this.setState({
        // true/false toggle
       ansform: !this.state.ansform,
@@ -106,22 +100,14 @@ class App extends Component {
 
   handleClick() {
     this.setState({qcount:this.state.qcount +2000});
-<<<<<<< HEAD
-=======
      let elem = document.getElementById("qnaApp");
     elem.classList.add("qnaScroll");
-    // console.log(this.state.qcount)
->>>>>>> d84d908cdec5950740717f4a63fbc463c6e85903
   }
 
   handleClick2() {
-
     this.setState({acount:!this.state.acount});
     let elem = document.getElementById("qnaApp");
     elem.classList.add("qnaScroll");
-    // let elem = document.getElementById(qnaApp);
-    // console.log(elem)
-    // elem.classList.add("qnaScroll")
   }
 
   handleClick3(e) {
