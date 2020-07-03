@@ -8,7 +8,7 @@ function QuesUser(props) {
   // console.log('user', props);
   return (
     <div
-      className="qa-QuesUser col-5"
+      className="qa-QuesUser col-sm"
       quesid={quesid}
     >
       {'by '}

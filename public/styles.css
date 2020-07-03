@@ -43,6 +43,14 @@ padding-bottom: 15px;
 #qnaApp {
   margin: 30px;
 }
+
+.qnaScroll{
+  background-color: rgb(250, 245, 245);
+  overflow-y: scroll;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
 .questionbody{
   font-weight: bold;
 }
@@ -123,6 +131,10 @@ padding-bottom: 15px;
   font-size: smaller;
 
 }
+
+.qnaSpacer{
+  margin:auto;
+  min-width: 20px;}
 
 .qa-question1{
   position:relative;
@@ -207,7 +219,6 @@ cursor: pointer;
 .qna-form-b{
   margin-top: 5px;
   width: 100%;
-
   margin-bottom:10px;
 }
 

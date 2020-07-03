@@ -96,7 +96,7 @@ function BaseQuestion(props) {
     <div>
 
       <div className="row qa-row-AnsUser">
-        <div className="col-7">
+        <div className="col-sm">
 
           <div className="qSpan">
             <span
