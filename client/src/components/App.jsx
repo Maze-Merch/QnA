@@ -49,9 +49,12 @@ class App extends Component {
     this.handleClick2 = this.handleClick2.bind(this);
     this.helpSubmit = this.helpSubmit.bind(this);
     this.productFetcher = this.productFetcher.bind(this);
-    this.qaSubmit=this.qaSubmit.bind(this);
-    this.qaReport=this.qaReport.bind(this);
-    this.onSearchChange=this.onSearchChange.bind(this);
+    this.qaSubmit = this.qaSubmit.bind(this);
+    this.qaReport = this.qaReport.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.ansSelectForm = this.ansSelectForm.bind(this);
+    this.quesSelectForm = this.quesSelectForm.bind(this)
+
   }
   productFetcher(){
     fetch('http://52.26.193.201:3000/qa/5?count=1000')
@@ -60,7 +63,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
+    // let qnaApp = document.getElementById('qnaApp').style.overflowY = "scroll";
     this.productFetcher();
   }
 
@@ -73,7 +76,13 @@ class App extends Component {
       }
   }
 
+<<<<<<< HEAD
   ansSelectForm = (info="", quesid) => {
+=======
+
+  ansSelectForm(info="", quesid){
+    // console.log("Xadasdasd", quesid)
+>>>>>>> d84d908cdec5950740717f4a63fbc463c6e85903
     this.setState({
        // true/false toggle
       ansform: !this.state.ansform,
@@ -81,7 +90,7 @@ class App extends Component {
       ansQuesId:quesid,})
   }
 
-  quesSelectForm = (info="") => {
+  quesSelectForm(info=""){
     this.setState({
        // true/false toggle
       quesform: !this.state.quesform,
@@ -97,10 +106,22 @@ class App extends Component {
 
   handleClick() {
     this.setState({qcount:this.state.qcount +2000});
+<<<<<<< HEAD
+=======
+     let elem = document.getElementById("qnaApp");
+    elem.classList.add("qnaScroll");
+    // console.log(this.state.qcount)
+>>>>>>> d84d908cdec5950740717f4a63fbc463c6e85903
   }
 
   handleClick2() {
+
     this.setState({acount:!this.state.acount});
+    let elem = document.getElementById("qnaApp");
+    elem.classList.add("qnaScroll");
+    // let elem = document.getElementById(qnaApp);
+    // console.log(elem)
+    // elem.classList.add("qnaScroll")
   }
 
   handleClick3(e) {
@@ -121,6 +142,8 @@ class App extends Component {
   }
 
 qaSubmit(submitObj, id, target, event){
+  console.log("target",submitObj, id.product, target)
+
   event.preventDefault();
   let url;
   if (target === "answer"){
@@ -147,7 +170,9 @@ qaSubmit(submitObj, id, target, event){
 
     return (
       <div id="qnaApp">
-        <div id="qna">
+        <div className="row">
+
+        <div id="qna"><div className="qnaSpacer d-none d-lg-block col-lg-2" />
           <div className="qa-title">QUESTIONS AND ANSWERS</div>
           <Search
             onSearchChange={this.onSearchChange}
@@ -168,6 +193,7 @@ qaSubmit(submitObj, id, target, event){
             />
           </div>
         </div>
+
         <div className="model">
 
           <Modal
@@ -192,6 +218,8 @@ qaSubmit(submitObj, id, target, event){
               ansQuesId={this.state.ansQuesId}
               qaSubmit={this.qaSubmit}
           />
+          </div>
+          <div className="qnaSpacer d-none d-lg-block col-lg-2" />
           </div>
         </div>
     );
