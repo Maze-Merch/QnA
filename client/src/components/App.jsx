@@ -49,9 +49,12 @@ class App extends Component {
     this.handleClick2 = this.handleClick2.bind(this);
     this.helpSubmit = this.helpSubmit.bind(this);
     this.productFetcher = this.productFetcher.bind(this);
-    this.qaSubmit=this.qaSubmit.bind(this);
-    this.qaReport=this.qaReport.bind(this);
-    this.onSearchChange=this.onSearchChange.bind(this);
+    this.qaSubmit = this.qaSubmit.bind(this);
+    this.qaReport = this.qaReport.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.ansSelectForm = this.ansSelectForm.bind(this);
+    this.quesSelectForm = this.quesSelectForm.bind(this)
+
   }
   productFetcher(){
     fetch('http://52.26.193.201:3000/qa/5?count=1000')
@@ -77,7 +80,7 @@ class App extends Component {
   }
 
 
-  ansSelectForm = (info="", quesid) => {
+  ansSelectForm(info="", quesid){
     // console.log("Xadasdasd", quesid)
     this.setState({
       ansform: !this.state.ansform,
@@ -86,7 +89,7 @@ class App extends Component {
  // true/false toggle
   }
 
-  quesSelectForm = (info="") => {
+  quesSelectForm(info=""){
     this.setState({
       quesform: !this.state.quesform,
       }) // true/false toggle
@@ -164,7 +167,9 @@ qaSubmit(submitObj, id, target, event){
 
     return (
       <div id="qnaApp">
-        <div id="qna">
+        <div className="row">
+
+        <div id="qna"><div className="qnaSpacer d-none d-lg-block col-lg-2" />
           <div className="qa-title">QUESTIONS AND ANSWERS</div>
           <Search
             onSearchChange={this.onSearchChange}
@@ -185,6 +190,7 @@ qaSubmit(submitObj, id, target, event){
             />
           </div>
         </div>
+
         <div className="model">
 
           <Modal
@@ -209,6 +215,8 @@ qaSubmit(submitObj, id, target, event){
               ansQuesId={this.state.ansQuesId}
               qaSubmit={this.qaSubmit}
           />
+          </div>
+          <div className="qnaSpacer d-none d-lg-block col-lg-2" />
           </div>
         </div>
     );

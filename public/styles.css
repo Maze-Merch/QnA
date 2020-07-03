@@ -47,6 +47,9 @@ padding-bottom: 15px;
 .qnaScroll{
   background-color: rgb(250, 245, 245);
   overflow-y: scroll;
+  padding-left: 15px;
+  padding-right: 15px;
+
 }
 .questionbody{
   font-weight: bold;
@@ -128,6 +131,10 @@ padding-bottom: 15px;
   font-size: smaller;
 
 }
+
+.qnaSpacer{
+  margin:auto;
+  min-width: 20px;}
 
 .qa-question1{
   position:relative;

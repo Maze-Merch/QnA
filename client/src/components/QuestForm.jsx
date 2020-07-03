@@ -57,7 +57,7 @@ const QuestForm = (props) => {
           >
             <input
               placeholder="Example: jackson11!"
-            // required
+              required
               size="65"
               maxLength="60"
               id="quesnname"
@@ -74,7 +74,7 @@ const QuestForm = (props) => {
             <input
               placeholder="Example: jack@email.com"
               type="email"
-            // required
+              required
               size="65"
               maxLength="60"
               id="quesemail"
