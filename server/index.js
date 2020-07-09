@@ -1,11 +1,13 @@
 const express = require('express');
-const cors = require('cors');
-
+const bodyParser = require('body-parser');
 const app = express();
-const port = 3003;
-app.use(cors());
-app.use(express.static('public'));
+const port = 3000;
+const path = require('path');
 
-// app.get('/', (req, res) => res.send('Hello World!'));
+const controllers = require('./controllers/controller.js');
 
-app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('/test', controllers.controlTest);
+
+app.listen(port, () => console.log(`listening on port ${port}`));
