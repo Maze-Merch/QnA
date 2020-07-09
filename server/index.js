@@ -9,6 +9,8 @@ const port = 3003;
 
 app.use(cors());
 app.use(express.static('public'));
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: false }));
 
 // QUESTIONS
 // list questions for particular product

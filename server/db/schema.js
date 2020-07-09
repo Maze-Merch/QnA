@@ -4,6 +4,7 @@ const { Schema } = mongoose.Schema;
 
 const QnaSchema = new Schema({
 
+  _id: Number,
   product_id: Number,
   results: [
     {
@@ -15,7 +16,7 @@ const QnaSchema = new Schema({
       reported: 0,
       answers: {
         10: { // This id needs to match the id below??? Autogenerate both?
-          id: Number,
+          id: Number, // will use same function as above or a variable so it doesn't run again?
           body: String,
           date: { type: Date, default: Date.now },
           answerer_name: String,

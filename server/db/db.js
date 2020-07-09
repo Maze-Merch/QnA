@@ -1,6 +1,5 @@
-import QnaSchema from './schema';
-
 const mongoose = require('mongoose');
+const QnaSchema = require('./schema');
 
 mongoose.connect('mongodb://localhost/qna', { useNewUrlParser: true, useUnifiedTopology: true });
 
