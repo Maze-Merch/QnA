@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const { Schema } = mongoose.Schema;
+const { Schema } = mongoose;
 
 const QnaSchema = new Schema({
 
@@ -14,17 +14,16 @@ const QnaSchema = new Schema({
       asker_name: String,
       question_helpfulness: Number,
       reported: 0,
-      answers: {
-        10: { // This id needs to match the id below??? Autogenerate both?
-          id: Number, // will use same function as above or a variable so it doesn't run again?
-          body: String,
-          date: { type: Date, default: Date.now },
-          answerer_name: String,
-          helpfulness: Number,
-          photos: [
-            String,
-          ],
-        },
+      answers: { // removed some complexity here, the key was also the id - fix on get response
+        id: Number, // will use same function as above or a variable so it doesn't run again?
+        body: String,
+        date: { type: Date, default: Date.now },
+        answerer_name: String,
+        helpfulness: Number,
+        reported: 0, // added - was not in api originally
+        photos: [
+          String,
+        ],
       },
     },
   ],
