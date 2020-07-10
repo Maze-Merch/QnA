@@ -1,10 +1,37 @@
 const mongoose = require('mongoose');
 const QnaSchema = require('./schema');
 
-mongoose.connect('mongodb://localhost:27017/qna', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/qna', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Every model has an associated connection. When you use mongoose.model(),
-// your model will use the default mongoose connection.
 const Question = mongoose.model('Question', QnaSchema);
 
-// start queries here:
+const getQuestions = () => (
+  Question.find() // implicit return
+    .then((questions) => (questions)) // implicit return
+    .catch((err) => {
+      console.error('Error getting questions db line 17', err);
+    })
+);
+
+const addQuestion = (id, addObj) => {
+  // console.log(
+  //   'id= ', id,
+  //   'addObj= ', addObj,
+  // );
+  const question = {
+    product_id: id,
+    question_body: addObj.quesbdy,
+    asker_name: addObj.quesnname,
+    asker_email: addObj.quesemail,
+  };
+  console.log('question', question);
+  // const newQuest = new Question(question);
+  return Question.create(question)
+    .then(() => ('Question added successfully'))
+    .catch((err) => console.error('Error adding question to database', err));
+};
+
+module.exports = {
+  getQuestions,
+  addQuestion,
+};
