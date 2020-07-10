@@ -8,12 +8,16 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "create-questions": "node ./server/database/questionGenerator.js",
+    "create-products": "node ./server/database/productGenerator.js",
+    "create-answers": "node ./server/database/answerGenerator.js",
+    "create-photos": "node ./server/database/photoGenerator.js",
     "server": "nodemon server/index.js",
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
     "build": "webpack --watch --mode development",
     "lint": "./node_modules/.bin/eslint",
     "test": "jest",
-    "build-db": "./schema.sql"
+    "build-db": "node ./schema.sql"
   },
   "dependencies": {
     "babel-jest": "^26.0.1",

@@ -1,7 +1,7 @@
-const modles = require('../modles/modles.js');
+const models = require('../models/models.js');
 
 const controlTest = (req, res) => {
-  modles.testGet((error, result) => {
+  models.testGet((error, result) => {
     if (error) {
       console.log('testGetRequest Failed to get any data', error);
     } else {
