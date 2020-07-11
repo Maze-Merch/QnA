@@ -32,14 +32,8 @@ const addQuestion = (id, addObj) => {
 };
 
 const addAnswer = (id, addAnsObj) => {
-  // console.log(
-  //   'id= ', id,
-  //   'addObj= ', addAnsObj,
-  // );
-  // const filter = { _id: id };
   const ansId = Math.floor(Math.random() * 1000000000);
-  // may need to create photos array here?
-  const ansObj = { // going to have to us $push here maybe?
+  const ansObj = {
     id: ansId,
     body: addAnsObj.ansbdy,
     answerer_name: addAnsObj.ansnname,

@@ -2,28 +2,35 @@ const fs = require('fs');
 const faker = require('faker');
 const argv = require('yargs').argv
 
-const lines = argv.lines || 100;
+const lines = argv.lines || 1;
 const filename = argv.output || 'questions.csv';
 const writeStream = fs.createWriteStream(filename);
 
 const createQuestion = () => {
-  const product_id:
-  const question_body:
-  const question_date: { type: Date, default: Date.now },
-  const asker_name:
-  const question_helpfulness:
-  const asker_email:
-  const reported: 0,
-  const answers: [{ // removed some complexity here, the key was also the id - fix on get response
-    const id:  // will use same function as above or a variable so it doesn't run again?
-    const body:
-    const date: { type: Date, default: Date.now },
-    const answerer_name:
-    const answerer_email:
-    const helpfulness:
-    const reported: 0, // added - was not in api originally
-    const photos: [],
-  }],
+  const product_id = Math.floor(Math.random() * 1000000000);
+  const question_body = faker.random.words(8);
+  const question_date = faker.date.recent();
+  const asker_name = faker.internet.userName();
+  const question_helpfulness = faker.random.number(20);
+  const asker_email = faker.internet.email();
+  const reported = 0;
+  let answers = [];
+  // loop here twice for answers?
+  let newAns = {
+    const id = Math.floor(Math.random() * 1000000000);
+    const body = faker.random.words(12);
+    const date = faker.date.recent();
+    const answerer_name = faker.internet.userName();
+    const answerer_email = faker.internet.email();
+    const helpfulness = faker.random.number(20);
+    const reported = 0;
+    let photos = [];
+    let newPhoto = {
+      faker.image.imageUrl()
+    }
+    photos.push(newPhoto);
+  };
+  answers.push(newAns);
 }
 
 const startWriting = (writeStream, encoding, done) => {
@@ -32,14 +39,14 @@ const startWriting = (writeStream, encoding, done) => {
     let canWrite = true
     do {
       i--
-      let post = createQuestion()
+      let question = createQuestion()
       //check if i === 0 so we would write and call `done`
       if(i === 0){
         // we are done so fire callback
-        writeStream.write(post, encoding, done)
+        writeStream.write(question, encoding, done)
       }else{
         // we are not done so don't fire callback
-        writeStream.write(post, encoding)
+        writeStream.write(question, encoding)
       }
       //else call write and continue looping
     } while(i > 0 && canWrite)
@@ -53,7 +60,7 @@ const startWriting = (writeStream, encoding, done) => {
 }
 
 //write our `header` line before we invoke the loop
-stream.write(`userId,title,content,image,date\n`, 'utf-8')
+stream.write(`product_id,question_body,question_date,asker_name,question_helpfulness,asker_email,reported,answers,` 'utf-8')
 //invoke startWriting and pass callback
 startWriting(stream, 'utf-8', () => {
   stream.end()
