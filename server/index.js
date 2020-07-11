@@ -42,8 +42,10 @@ app.get('/qa/:questions_id/answers', (req, res) => {
   // res 200
 });
 // add an answer
-app.post('/qa/:question_id/answers', (req, res) => {
-  // res 201 CREATED
+app.put('/qa/:question_id/answers', (req, res) => {
+  db.addAnswer(req.params.question_id, req.body)
+    .then((data) => (res.status(201).send(data)))
+    .catch((err) => (console.error('Error adding answer', err)));
 });
 // mark answer as helpful
 app.put('/qa/answer/:answer_id/helpful', (req, res) => {

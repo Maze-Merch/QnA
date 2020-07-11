@@ -36,19 +36,22 @@ const addAnswer = (id, addAnsObj) => {
   //   'id= ', id,
   //   'addObj= ', addAnsObj,
   // );
-  const filter = { _id: id };
+  // const filter = { _id: id };
   const ansId = Math.floor(Math.random() * 1000000000);
   // may need to create photos array here?
-  const update = {
+  const ansObj = { // going to have to us $push here maybe?
     id: ansId,
     body: addAnsObj.ansbdy,
     answerer_name: addAnsObj.ansnname,
     answerer_email: addAnsObj.ansemail,
     photos: [],
   };
-  return Question.findOneAndUpdate(filter, update, {
-    returnOriginal: false,
-  });
+  console.log('ansObj', ansObj);
+  return Question.updateOne(
+    { _id: id },
+    { $push: { answers: ansObj } },
+  ).then(() => ('Answer added successfully'))
+    .catch((err) => console.error('Error adding answer to database', err));
 };
 
 module.exports = {
