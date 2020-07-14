@@ -6,7 +6,7 @@ writeProduct.write('product_id\n', 'utf8');
 // may need to insert for
 
 function writeTenMillionProducts(writer, encoding, callback) {
-  let i = 100;
+  let i = 10000000;
   let id = 0;
   function write() {
     let ok = true;

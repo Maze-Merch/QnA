@@ -57,7 +57,7 @@ class App extends Component {
 
   }
   productFetcher(){
-    fetch('http://52.26.193.201:3000/qa/5?count=1000')
+    fetch('http://localhost:3000/qa?q_id=1000')
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
   }
@@ -115,14 +115,14 @@ class App extends Component {
   }
 
   qaReport(id, target){
-    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/report`,
+    fetch(`http://localhost:3000/qa/${target}/${id}/report`,
     {method:'PUT'}
     )
     .then( response=>{this.productFetcher()})
   }
 
   helpSubmit(id, target){
-    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/helpful`,
+    fetch(`http://localhost:3000/qa/${target}/${id}/helpful`,
     {method:'PUT'}
     ).then( response=>this.productFetcher())
   }
@@ -133,9 +133,9 @@ qaSubmit(submitObj, id, target, event){
   event.preventDefault();
   let url;
   if (target === "answer"){
-    url = `http://52.26.193.201:3000/qa/${id}/answers`
+    url = `http://localhost:3000/qa/${id}/answers`
   } else if (target === "question"){
-    url = `http://52.26.193.201:3000/qa/${id}`
+    url = `http://localhost:3000/qa/${id}`
   }
   fetch(url,
   {

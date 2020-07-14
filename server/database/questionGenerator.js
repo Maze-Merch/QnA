@@ -2,11 +2,11 @@ const faker = require('faker');
 const fs = require('fs');
 
 const writeQuestion = fs.createWriteStream('questions.csv');
-writeQuestion.write('q_id,q_body,q_date,asker_name,q_helpful,q_reported,product_id\n', 'utf8');
+writeQuestion.write('q_id|q_body|q_date|asker_name|q_helpful|product_id\n', 'utf8');
 // may need to insert for
 
 function writeTenMillionProducts(writer, encoding, callback) {
-  let i = 100;
+  let i = 10000000;
   let id = 0;
   function write() {
     let ok = true;
@@ -17,8 +17,9 @@ function writeTenMillionProducts(writer, encoding, callback) {
       const q_date = faker.date.past();
       const asker_name = faker.internet.userName();
       const q_helpful = faker.random.number();
-      const q_reported = faker.random.number();
-      const data = `${id},${q_body},${q_date},${asker_name},${q_helpful},${q_reported}, ${product_id}\n`;
+      const product_id = id;
+      // const q_reported = faker.random.number();
+      const data = `${id}|${q_body}|${q_date}|${asker_name}|${q_helpful}|${product_id}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

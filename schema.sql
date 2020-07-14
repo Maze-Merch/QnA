@@ -28,7 +28,6 @@ TABLESPACE pg_default;
 ALTER TABLE public.product
     OWNER to postgres;
 
-
 -- Table: public.questions
 
 -- DROP TABLE public.questions;
@@ -48,11 +47,22 @@ CREATE TABLE public.questions
         ON DELETE NO ACTION
 )
 
+-- Index: quest index
+
+-- DROP INDEX public."quest index";
+
+CREATE INDEX "quest index"
+    ON public.questions USING brin
+    (q_id)
+    TABLESPACE pg_default;
+
+COMMENT ON INDEX public."quest index"
+    IS 'indexes question';
+
 TABLESPACE pg_default;
 
 ALTER TABLE public.questions
     OWNER to postgres;
-
 -- Index: fki_refrence_to_product_id
 
 -- DROP INDEX public.fki_refrence_to_product_id;
@@ -62,6 +72,10 @@ CREATE INDEX fki_refrence_to_product_id
     (product_id ASC NULLS LAST)
     TABLESPACE pg_default;
 
+
+-- Table: public.answers
+
+-- DROP TABLE public.answers;
 
 -- Table: public.answers
 
@@ -88,32 +102,24 @@ CREATE TABLE public.answers
         ON DELETE NO ACTION
 )
 
+-- Index: answerIndex
+
+-- DROP INDEX public."answerIndex";
+
+CREATE INDEX "answerIndex"
+    ON public.answers USING brin
+    (a_id)
+    TABLESPACE pg_default;
+
+COMMENT ON INDEX public."answerIndex"
+    IS 'indexes answer ids';
+
 TABLESPACE pg_default;
 
 ALTER TABLE public.answers
     OWNER to postgres;
 
--- Index: fki_answer_connect_photo
 
--- DROP INDEX public.fki_answer_connect_photo;
-
-CREATE INDEX fki_answer_connect_photo
-    ON public.answers USING btree
-    (photo_id ASC NULLS LAST)
-    TABLESPACE pg_default;
-
--- Index: fki_answer_connect_question
-
--- DROP INDEX public.fki_answer_connect_question;
-
-CREATE INDEX fki_answer_connect_question
-    ON public.answers USING btree
-    (question_id ASC NULLS LAST)
-    TABLESPACE pg_default;
-
--- Table: public.photos
-
--- DROP TABLE public.photos;
 
 CREATE TABLE public.photos
 (

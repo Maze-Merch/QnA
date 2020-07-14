@@ -2,11 +2,11 @@ const faker = require('faker');
 const fs = require('fs');
 
 const writeAnswers = fs.createWriteStream('answers.csv');
-writeAnswers.write('a_id,a_body,a_date,answerer_name,a_helpful,a_reported,fk photos_id,question_id\n', 'utf8');
+writeAnswers.write('a_id|a_body|a_date|answerer_name|a_helpful|a_reported|photo_id|question_id\n', 'utf8');
 // may need to insert for
 
 function writeTenMillionAnswers(writer, encoding, callback) {
-  let i = 100;
+  let i = 10000000;
   let id = 0;
   function write() {
     let ok = true;
@@ -16,11 +16,14 @@ function writeTenMillionAnswers(writer, encoding, callback) {
       const a_body = faker.lorem.sentences();
       const a_date = faker.date.past();
       const answerer_name = faker.internet.userName();
-      const a_helpful = faker.random.number(10);
+      const a_helpful = faker.random.number(1);
       const a_reported = faker.random.number(1);
+      const photo_id = id;
+      const question_id = id;
+
       // const photos_id = {};
       // const question_id = {};
-      const data = `${id},${a_body},${a_date},${answerer_name},${a_helpful},${a_reported}\n`;
+      const data = `${id}|${a_body}|${a_date}|${answerer_name}|${a_helpful}|${a_reported}|${photo_id}| ${question_id}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
