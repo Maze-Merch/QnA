@@ -6,9 +6,9 @@ const Schemas = require('./schema');
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  poolSize: 100, // maintaina up to 100 socket connections
-  serverSelectionTimeoutMS: 6000000, // changed to 19min
-  socketTimeoutMS: 45000, // timout after 45 sec of inactivity
+  // poolSize: 100, // maintaina up to 100 socket connections
+  // serverSelectionTimeoutMS: 6000000, // changed to 19min
+  // socketTimeoutMS: 45000, // timout after 45 sec of inactivity
 };
 mongoose.connect('mongodb://localhost/qna', options);
 
