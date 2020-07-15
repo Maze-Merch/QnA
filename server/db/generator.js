@@ -6,21 +6,21 @@ const Schemas = require('./schema');
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  // poolSize: 100, // maintaina up to 100 socket connections
-  // serverSelectionTimeoutMS: 6000000, // changed to 19min
-  // socketTimeoutMS: 45000, // timout after 45 sec of inactivity
+  poolSize: 100, // maintaina up to 100 socket connections
+  serverSelectionTimeoutMS: 8000000, // changed to 19min
+  socketTimeoutMS: 45000, // timout after 45 sec of inactivity
 };
 mongoose.connect('mongodb://localhost/qna', options);
 
 const Question = mongoose.model('Question', Schemas.QnaSchema);
 
-const insertNumber = 1000;
+const insertNumber = 100;
 
 const createQuestion = () => {
   const answersArr = [];
   const ansPhotosArr = [];
 
-  const questProdId = Math.floor(Math.random() * 1000000000);
+  const questProdId = faker.random.number(20);
   const questBody = faker.random.words(8);
   const questDate = faker.date.recent();
   const questName = faker.internet.userName();
@@ -34,7 +34,7 @@ const createQuestion = () => {
   const ansEmail = faker.internet.email();
   const ansHelpfulness = faker.random.number(20);
   // const ansReported = 0;
-  const newPhoto = faker.image.imageUrl();
+  const newPhoto = faker.image.nature();
   ansPhotosArr.push(newPhoto);
   // create answers object
   const newAnsObj = {
@@ -70,7 +70,7 @@ const seed = () => {
   while (i < insertNumber) {
     const doc = createQuestion();
     docs.push(doc);
-    if (docs.length === 1000) {
+    if (docs.length === 100) {
       Question.insertMany(docs, function(err, docs) {
         if(err) {
           return console.log(err);

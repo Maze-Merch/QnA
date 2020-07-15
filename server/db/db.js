@@ -5,8 +5,8 @@ mongoose.connect('mongodb://localhost/qna', { useNewUrlParser: true, useUnifiedT
 
 const Question = mongoose.model('Question', Schemas.QnaSchema);
 
-const getQuestions = () => (// implicit return
-  Question.find()
+const getQuestions = (id) => (// implicit return
+  Question.find({ product_id: id }, (err, arr) => {console.log(id)})
     .then((questions) => (questions)) // implicit return
     .catch((err) => {
       console.error('Error getting questions db line 17', err);

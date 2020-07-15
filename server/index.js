@@ -15,7 +15,9 @@ app.use(bp.urlencoded({ extended: false }));
 // QUESTIONS
 // list questions for particular product
 app.get('/qa/:product_id', (req, res) => {
-  db.getQuestions()
+  const id = req.params.product_id;
+  // console.log('req.params.product_id= ', req.params.product_id);
+  db.getQuestions(id)
     .then((data) => (res.status(200).send(data)))
     .catch((err) => {
       res.status(500).send('Error getting questions = ', err);

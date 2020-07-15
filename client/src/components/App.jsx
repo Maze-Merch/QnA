@@ -56,10 +56,43 @@ class App extends Component {
     this.quesSelectForm = this.quesSelectForm.bind(this)
 
   }
-  productFetcher(){
-    fetch('http://52.26.193.201:3000/qa/5?count=1000')
-    .then(response=> response.json())
-    .then(data => this.setState({questions:data}))
+  // productFetcher(){
+  //   fetch('http://52.26.193.201:3000/qa/5?count=1000')
+  //   .then(response=> response.json())
+  //   .then(data => this.setState({questions:data}))
+  // }
+
+  productFetcher() {
+    let questions = {
+      product_id: 5,
+      results: [],
+    }
+
+    fetch('http://localhost:3003/qa/5')
+      .then((res) => res.json())
+      .then((data) => data.forEach((question, i) => questions.results.push(
+          {
+            question_id: data[i].question_id,
+            question_body: data[i].question_body,
+            question_date: data[i].question_date,
+            asker_name: data[i].asker_name,
+            question_helpfulness: data[i].question_helpfulness,
+            reported: data[i].reported,
+            answers: {
+              1: {
+                id: data[i].answers[0].id,
+                body: data[i].answers[0].body,
+                date: data[i].answers[0].answer_date,
+                answerer_name: data[i].answers[0].answerer_name,
+                helpfulness: data[i].answers[0].helpfulness,
+                photos: [data[i].answers[0].photos[0]],
+              }
+            },
+          }
+        )))
+    .then((data) => this.setState({
+      questions,
+    }))
   }
 
   componentDidMount(){
