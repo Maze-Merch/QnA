@@ -8,21 +8,31 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "server": "nodemon server/index.js",
+    "create-questions": "node ./server/database/questionGenerator.js",
+    "create-products": "node ./server/database/productGenerator.js",
+    "create-answers": "node ./server/database/answerGenerator.js",
+    "create-photos": "node ./server/database/photoGenerator.js",
+    "server": "nodemon morgan server/index.js",
     "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
     "build": "webpack --watch --mode development",
     "lint": "./node_modules/.bin/eslint",
-    "test": "jest"
+    "test": "jest",
+    "build-db": "node ./schema.sql"
   },
   "dependencies": {
+    "artillery": "^1.6.1",
     "babel-jest": "^26.0.1",
     "babel-preset-airbnb": "^5.0.0",
     "bootstrap": "^4.5.0",
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "moment": "^2.27.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "pg": "^8.3.0",
+    "postgres": "^1.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
