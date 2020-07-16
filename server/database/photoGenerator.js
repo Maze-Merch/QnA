@@ -2,7 +2,7 @@ const faker = require('faker');
 const fs = require('fs');
 
 const writePhotos = fs.createWriteStream('photos.csv');
-writePhotos.write('id|url\n', 'utf8');
+writePhotos.write('id|url|answer_id\n', 'utf8');
 
 function writeTenMillionPhotos(writer, encoding, callback) {
   let i = 10000000;
@@ -12,8 +12,9 @@ function writeTenMillionPhotos(writer, encoding, callback) {
     do {
       i -= 1;
       id += 1;
+      let answer_id = id;
       const url = faker.image.imageUrl();
-      const data = `${id}|${url}\n`;
+      const data = `${id}|${url}|${answer_id}\n`;
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {

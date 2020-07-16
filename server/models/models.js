@@ -1,9 +1,29 @@
 const faker = require('faker');
 const db = require('../database/dbConnection.js');
+// 'select product.id, question.q_id, question.q_body, question.q_date, question.asker_name, question.q_helpful, question.product_id, answers.a_id, answers.a_body, answers.a_date, answers.answerer_name, answers.a_helpful, photos.url from product join questions on product.id = questions.product_id join answers on questions.q_id = answers.question_id join photos on answers.a_id = photos.answers_id'
+// const testGet = (ids, callback) => {
+//   db.query('select product.id from product join questions on product.id = questions.product_id join answers on questions.q_id = answers.question_id join photos on answers.a_id = photos.answer_id where product.id = $1', [ids])
+//     .then((response) => {
+//       console.log('response', response)
+//       return response
+//     })
+//     .catch((err) => {
+//       console.log('error', err)
+//     })
+//     // .then(() => db.query('SELECT * FROM public.questions WHERE q_id=1')
+//     // .then((response) => {
+//     //   console.log(response)
+//     //   return
+//     // })
+//     // .then('SELECT * FROM public.answers WHERE a_id=$1')
+// };
 
-const testGet = (callback) => {
-  const queryString = 'SELECT id, url FROM public.photos;';
-  db.query(queryString, (error, results) => {
+
+
+const testGet = (query, callback) => {
+  const queryString = 'select product.id, q_id, q_body, q_date, asker_name, q_helpful, product_id, a_id, a_body, a_date, answerer_name, a_helpful, url from product join questions on product.id = questions.product_id join answers on questions.q_id = answers.question_id join photos on answers.a_id = photos.answer_id where product.id = $1';
+  // return db.query(queryString, [query])
+  db.query(queryString, [query], (error, results) => {
     if (error) {
       callback('modles testGet failed', error);
     } else {

@@ -1,7 +1,8 @@
 const models = require('../models/models.js');
 
 const controlTest = (req, res) => {
-  models.testGet((error, result) => {
+  const { id } = req.params.id
+  models.testGet(id, (error, result) => {
     if (error) {
       console.log('testGetRequest Failed to get any data', error);
     } else {

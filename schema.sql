@@ -47,17 +47,10 @@ CREATE TABLE public.questions
         ON DELETE NO ACTION
 )
 
--- Index: quest index
-
--- DROP INDEX public."quest index";
-
-CREATE INDEX "quest index"
-    ON public.questions USING brin
-    (q_id)
+CREATE INDEX q_index
+    ON public.questions USING btree
+    (q_id ASC NULLS LAST)
     TABLESPACE pg_default;
-
-COMMENT ON INDEX public."quest index"
-    IS 'indexes question';
 
 TABLESPACE pg_default;
 
@@ -102,17 +95,10 @@ CREATE TABLE public.answers
         ON DELETE NO ACTION
 )
 
--- Index: answerIndex
-
--- DROP INDEX public."answerIndex";
-
-CREATE INDEX "answerIndex"
-    ON public.answers USING brin
-    (a_id)
+CREATE INDEX a_index
+    ON public.answers USING btree
+    (a_id ASC NULLS LAST)
     TABLESPACE pg_default;
-
-COMMENT ON INDEX public."answerIndex"
-    IS 'indexes answer ids';
 
 TABLESPACE pg_default;
 

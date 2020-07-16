@@ -4,7 +4,7 @@ const router = express.Router();
 
 const controllers = require('../controllers/controller.js');
 
-router.get('/test', controllers.controlTest);
+router.get('/test/:id', controllers.controlTest);
 router.get('/qa', controllers.getProductQuestions);
 router.get('/qa/answers', controllers.getAnswerForQuestion);
 router.post('/qa/:product_id', controllers.postQuestion);
