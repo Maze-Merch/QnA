@@ -111,3 +111,7 @@ questions.csv
 *.csv
 
 dataStore
+
+# key-pair
+
+sdc_key_pair.pem

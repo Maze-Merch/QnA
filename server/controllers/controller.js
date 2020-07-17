@@ -1,7 +1,9 @@
 const models = require('../models/models.js');
 
 const controlTest = (req, res) => {
-  const { id } = req.params.id
+  // console.log(req.query);
+  // console.log(req.params);
+  const { id } = req.params;
   models.testGet(id, (error, result) => {
     if (error) {
       console.log('testGetRequest Failed to get any data', error);
@@ -16,8 +18,8 @@ const controlTest = (req, res) => {
 
 const getProductQuestions = (req, res) => {
   // const q_id = req.params.q_id;
-  const { q_id } = req.query;
-  models.getProductQuestions(q_id, (error, result) => {
+  const { id } = req.params;
+  models.getProductQuestions(id, (error, result) => {
     if (error) {
       console.log('testGetRequest Failed to get any data', error);
     } else {
@@ -30,8 +32,9 @@ const getProductQuestions = (req, res) => {
 };
 
 const getAnswerForQuestion = (req, res) => {
-  const { a_id } = req.query;
-  models.getAnswerForQuestion(a_id, (error, result) => {
+  console.log(req.params);
+  const { q_id } = req.params;
+  models.getAnswerForQuestion(q_id, (error, result) => {
     if (error) {
       console.log('opps get product quest error', error);
     } else {
@@ -42,6 +45,11 @@ const getAnswerForQuestion = (req, res) => {
     }
   });
 };
+
+
+
+
+
 
 const postQuestion = (req, res) => {
   const { q_id } = req.query;

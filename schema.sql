@@ -107,14 +107,31 @@ ALTER TABLE public.answers
 
 
 
+-- Table: public.photos
+
+-- DROP TABLE public.photos;
+
 CREATE TABLE public.photos
 (
     id integer NOT NULL,
     url text COLLATE pg_catalog."default",
-    CONSTRAINT photos_pkey PRIMARY KEY (id)
+    answer_id integer,
+    CONSTRAINT photos_pkey PRIMARY KEY (id),
+    CONSTRAINT answer_id FOREIGN KEY (id)
+        REFERENCES public.answers (a_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
 
 ALTER TABLE public.photos
     OWNER to postgres;
+-- Index: fki_answer_id
+
+-- DROP INDEX public.fki_answer_id;
+
+CREATE INDEX fki_answer_id
+    ON public.photos USING btree
+    (answer_id ASC NULLS LAST)
+    TABLESPACE pg_default;

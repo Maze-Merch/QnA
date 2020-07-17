@@ -1,26 +1,30 @@
-# config:
-#   target: 'https://localhost:3000'
-#   phases:
-#     - duration: 60
-#       arrivalRate: 5
-# scenarios:
-#   - name: "get question test"
-#   - flow:
-#     - get:
-#         url: "/qa"
-
-# config:
-#   target: "127.0.0.1:3000"
-#   phases:
-#     - duration: 60
-#       arrivalCount: 20
-
 config:
   target: 'http://localhost:3000'
   phases:
-    - duration: 1
-      arrivalRate: 1000
+    - duration: 30
+      arrivalRate: 6
+      name: "warm-up"
+    - duration: 10
+      arrivalRate: 15
+      name: "warm-up"
+    - duration: 30
+      arrivalRate: 5
+      name: "warm-up"
+    - duration: 5
+      arrivalRate: 20
+      name: "warm-up"
+    - duration: 20
+      arrivalRate: 3
+      name: "warm-up"
+  processor: './artilleryFun.js'
 scenarios:
   - flow:
     - get:
-        url: "/qa"
+        url: "/"
+    - get:
+        url: "/bundle.js"
+    - loop:
+      - function: "setId"
+      - get:
+          url: "/qa"
+      count: 90

@@ -5,8 +5,8 @@ const router = express.Router();
 const controllers = require('../controllers/controller.js');
 
 router.get('/test/:id', controllers.controlTest);
-router.get('/qa', controllers.getProductQuestions);
-router.get('/qa/answers', controllers.getAnswerForQuestion);
+router.get('/qa/:id', controllers.getProductQuestions);
+router.get('/qa/:q_id/answers', controllers.getAnswerForQuestion);
 router.post('/qa/:product_id', controllers.postQuestion);
 router.post('/qa/:question_id/answers', controllers.postAnswer);
 router.put('/qa/question/helpful', controllers.updateHelpfulQuestion);
