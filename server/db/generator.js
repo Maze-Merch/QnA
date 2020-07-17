@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/qna', options);
 
 const Question = mongoose.model('Question', Schemas.QnaSchema);
 
-const insertNumber = 1000;
+const insertNumber = 10000000;
 
 const createQuestion = () => {
   const answersArr = [];
@@ -65,8 +65,7 @@ const createQuestion = () => {
 
 const seedFile = () => {
   const t0 = new Date();
-  fs.writeFileSync(__dirname +
-    '/qnaData.json',
+  fs.writeFileSync(__dirname + '/qnaData.json',
     '[',
     (e) => {
       if (e) console.error(e);
@@ -137,7 +136,7 @@ const seedFile = () => {
         if (e) console.error(e);
         },
       );
-    if (i % 10000 === 0) console.log(`${i / 10000}%`);
+    if (i % 100000 === 0) console.log(`${i / 100000}%`);
   }
   const t1 = new Date();
   console.log(`Seeding took ${t1 - t0} milliseconds.`);

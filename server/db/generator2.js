@@ -12,25 +12,20 @@ const seedFile = () => {
     });
 
   for (let i = 0; i < insertNumber; i++) {
-    // const answersArr = [];
-    // const ansPhotosArr = [];
-
     const questProdId = faker.random.number(20);
     const questBody = faker.random.words(8);
     const questDate = faker.date.recent();
     const questName = faker.internet.userName();
     const questHelpfulness = faker.random.number(20);
     const questEmail = faker.internet.email();
-    // const questReported = 0;
     const ansId = Math.floor(Math.random() * 1000000000);
     const ansBody = faker.random.words(12);
     const ansDate = faker.date.recent();
     const ansName = faker.internet.userName();
     const ansEmail = faker.internet.email();
     const ansHelpfulness = faker.random.number(20);
-    // const ansReported = 0;
     const newPhoto = faker.image.nature();
-    // ansPhotosArr.push(newPhoto);
+
     // create answers object
     const newAnsObj = {
       id: ansId,
@@ -43,7 +38,6 @@ const seedFile = () => {
       photos: [newPhoto],
     };
 
-    // answersArr.push(newAnsObj);
     // create questions object
     const newQuestionObj = {
       product_id: questProdId,
@@ -60,19 +54,18 @@ const seedFile = () => {
       { flag: 'as' },
       (e) => {
         if (e) console.error(e);
-      },
-    );
+      });
     i !== insertNumber - 1
-    ? fs.writeFileSync(__dirname + '/qnaData.json', ',',
+      ? fs.writeFileSync(__dirname + '/qnaData.json', ',',
         { flag: 'as' },
         (e) => {
           if (e) console.error(e);
         },
       )
-    : fs.writeFileSync(__dirname + '/qnaData.json', ']',
+      : fs.writeFileSync(__dirname + '/qnaData.json', ']',
         { flag: 'as' },
         (e) => {
-        if (e) console.error(e);
+          if (e) console.error(e);
         },
       );
     if (i % 37432 === 0) console.log(`${i / 37432}%`);
