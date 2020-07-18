@@ -14,7 +14,7 @@ mongoose.connect('mongodb://localhost/qna', options);
 
 const Question = mongoose.model('Question', Schemas.QnaSchema);
 
-const insertNumber = 10000000;
+const insertNumber = 1000;
 
 const createQuestion = () => {
   const answersArr = [];

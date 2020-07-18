@@ -1,7 +1,7 @@
 const fs = require('fs');
 const faker = require('faker');
 
-const insertNumber = 3743250;
+const insertNumber = 4743226;
 
 const seedFile = () => {
   const t0 = new Date();
@@ -12,7 +12,7 @@ const seedFile = () => {
     });
 
   for (let i = 0; i < insertNumber; i++) {
-    const questProdId = faker.random.number(20);
+    const questProdId = faker.random.number(200000);
     const questBody = faker.random.words(8);
     const questDate = faker.date.recent();
     const questName = faker.internet.userName();
@@ -68,7 +68,7 @@ const seedFile = () => {
           if (e) console.error(e);
         },
       );
-    if (i % 37432 === 0) console.log(`${i / 37432}%`);
+    if (i % 47432 === 0) console.log(`${i / 47432}%`);
   }
   const t1 = new Date();
   console.log(`Seeding took ${t1 - t0} milliseconds.`);
