@@ -2,11 +2,10 @@
 
 **MAZE Mercantile** an e-commerce shoe retailer.
 Part of a 3 person team updating a client facing retail web portal.
-Personally in charge of the Questions and Answers portion of the website.
-
-### Project Goals
-Create a new Q&A module to show questions and their corresponding answers in an expanding and collapsing accordion style.
-When expanded, make additional data scrollable without adding to the height of the website. Creating modals to show pictures and forms. Allow for the addition, updating and reporting of data as well as the ability to upload pictures. Create search functionality as well as dynamic highlighting of search text.
+Personally in charge of creating a new Q&A module to show questions and their corresponding answers in an expanding and collapsing accordion style.
+When expanded it makes additional data scrollable without adding to the height of the website. Created modals to show pictures and forms.
+Module also allows for the addition, updating and reporting of data as well as the ability to upload pictures.
+Created search functionality as well as dynamic highlighting of search text.
 
 
 ### Technologies Used
@@ -34,7 +33,6 @@ To run this repo, you will need to install dependencies "npm install" and run "n
     react-dom: ^16.3.1
 
  #### devDependencies:
-    babel-core: ^6.26.0,
     babel-loader: ^7.1.4,
     babel-preset-env: ^1.6.1,
     babel-preset-react: ^6.24.1,
