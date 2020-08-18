@@ -1,4 +1,3 @@
-
 # MAZE Mercantile - Questions and Answers
 
 **MAZE Mercantile** an e-commerce shoe retailer.
@@ -6,8 +5,8 @@ Part of a 3 person team updating a client facing retail web portal.
 Personally in charge of the Questions and Answers portion of the website.
 
 ### Project Goals
-Create new Q&A module to show questions and their corresponding answers in an expanding and collapsing accordion style.
-When expanded make additional data scrollable without adding to height of the website. Creating modals to show pictures and forms. Allow for the addition, updating and reporting of data as well as the ability to upload pictures. Create search functionality as well as dynamic highlighting of search text.
+Create a new Q&A module to show questions and their corresponding answers in an expanding and collapsing accordion style.
+When expanded, make additional data scrollable without adding to the height of the website. Creating modals to show pictures and forms. Allow for the addition, updating and reporting of data as well as the ability to upload pictures. Create search functionality as well as dynamic highlighting of search text.
 
 
 ### Technologies Used
@@ -19,7 +18,7 @@ React, Node, Express, Bootstrap, Moment
 ![QnA3](/QnA3.png)
 
 ### Usage
-To run this repo, you will need to install dependencies "npm install" and run "npm start" script.
+To run this repo, you will need to install dependencies "npm install" and run "npm start" script
 
 #### dependencies:
   "axios": "^0.19.2",
