@@ -22,35 +22,24 @@ React, Node, Express, Bootstrap, Moment
 To run this repo, you will need to install dependencies "npm install" and run "npm start" script.
 
 #### dependencies:
-    "babel-jest": "^26.0.1",
-    "babel-preset-airbnb": "^5.0.0",
+  "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.5.0",
-    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "moment": "^2.27.0",
+    "jquery": "^3.5.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.13.1",
-    "sass": "^1.26.8"
+    "react": "^16.3.1",
+    "react-bootstrap": "^1.3.0",
+    "react-dom": "^16.3.1"
 
  #### devDependencies:
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "babel-loader": "^8.1.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^2.5.0",
-    "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.3.0",
-    "jest": "^26.0.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "mongoose": "^5.1.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
