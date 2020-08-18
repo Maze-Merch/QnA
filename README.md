@@ -19,7 +19,6 @@ React, Node, Express, Bootstrap, Moment
 
 ### Usage
 To run this repo, you will need to install dependencies "npm install" and run "npm start" script.
-Please note server addresses will need to be updated.
 
 ### Requirements
 #### dependencies:
