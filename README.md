@@ -20,10 +20,10 @@ React, Node, Express, Bootstrap, Moment
 To run this repo, you will need to install dependencies "npm install" and run "npm start" script
 
 #### dependencies:
-  axios: ^0.19.2,
-    body-parser: ^1.19.0"
+    axios: ^0.19.2,
+    body-parser: ^1.19.0,
     bootstrap: ^4.5.0,
-    cors: ^2.8.",
+    cors: ^2.8.,
     express: ^4.17.1,
     jquery: ^3.5.1,
     morgan: ^1.10.0,
