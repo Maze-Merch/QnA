@@ -79,7 +79,11 @@ function BaseQuestion(props) {
       <span>
         {' '}
         { parts.map((part, i) => (
-          <span key={i} style={part.toLowerCase() === highlight.toLowerCase() ? { backgroundColor: 'yellow' } : {}}>
+          <span
+            key={i}
+            style={part.toLowerCase() === highlight.toLowerCase()
+              ? { backgroundColor: 'yellow' } : {}}
+          >
             { part }
           </span>
         ))}
