@@ -21,7 +21,6 @@ React, Node, Express, Bootstrap, Moment
 ### Usage
 To run this repo, you will need to install dependencies "npm install" and run "npm start" script.
 
-### Requirements
 #### dependencies:
     "babel-jest": "^26.0.1",
     "babel-preset-airbnb": "^5.0.0",
