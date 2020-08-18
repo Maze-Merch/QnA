@@ -1,9 +1,9 @@
 
-# MAZE Mercantile - Questions and Anwsers
+# MAZE Mercantile - Questions and Answers
 
 **MAZE Mercantile** an e-commerce shoe retailer.
 Part of a 3 person team updating a client facing retail web portal.
-Personally in charge of the Questions and Anwsers portion of the website.
+Personally in charge of the Questions and Answers portion of the website.
 
 ### Project Goals
 Create new Q&A module to show questions and their corresponding answers in an expanding and collapsing accordion style.
@@ -16,6 +16,7 @@ React, Node, Express, Bootstrap, Moment
 ### Screenshot of Q&A
 ![QnA1](/QnA1.png)
 ![QnA2](/QnA2.png)
+![QnA3](/QnA3.png)
 
 ### Usage
 To run this repo, you will need to install dependencies "npm install" and run "npm start" script.
