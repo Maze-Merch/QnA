@@ -61,6 +61,9 @@ class App extends Component {
     .then(response=> response.json())
     .then(data => this.setState({questions:data}))
     .then(console.log(this.state.questions))
+    .catch(function(e) {
+      console.error(e.message);
+    })
   }
 
   componentDidMount(){
