@@ -58,7 +58,7 @@ class App extends Component {
   }
   productFetcher(){
     fetch('//52.26.193.201:3000/qa/5?count=1000')
-    .then(response=> response.json())
+    .then(response => response.json())
     .then(data => this.setState({questions:data}))
     .then(console.log(this.state.questions))
     .catch(function(e) {
@@ -123,12 +123,16 @@ class App extends Component {
     {method:'PUT'}
     )
     .then( response=>{this.productFetcher()})
+    .catch(function(e) {
+      console.error(e.message);
   }
 
   helpSubmit(id, target){
     fetch(`//52.26.193.201:3000/qa/${target}/${id}/helpful`,
     {method:'PUT'}
     ).then( response=>this.productFetcher())
+    .catch(function(e) {
+      console.error(e.message);
   }
 
 qaSubmit(submitObj, id, target, event){
@@ -150,6 +154,8 @@ qaSubmit(submitObj, id, target, event){
     body:JSON.stringify(submitObj)
   })
   .then(response=>{this.productFetcher()})
+  .catch(function(e) {
+    console.error(e.message);
 }
 
   render(){
