@@ -63,7 +63,7 @@ class App extends Component {
     .then(response => response.json())
     .then(data => data1 = data)
     .then(data1 => this.setState({questions:data}))
-    .then(console.log(data1))
+    .then(console.log("data1",data1))
     .catch(function(e) {
       console.error(e.message);
     })
