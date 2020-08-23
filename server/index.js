@@ -8,4 +8,6 @@ app.use(express.static('public'));
 
 // app.get('/', (req, res) => res.send('Hello World!'));
 
-app.listen(PORT, '0.0.0.0', () => console.log(`Listening at http://localhost:${port}`));
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`listening on port ${PORT}`);
+});
