@@ -57,12 +57,9 @@ class App extends Component {
 
   }
   productFetcher(){
-    console.log("fetching")
-    fetch('/52.26.193.201:3000/qa/5?count=1000')
-    .then(response => response.text())
-    .then(data => {this.setState({questions:data});
-      console.log("data", data)})
-    .then(console.log("questions", this.state.questions))
+    fetch('//52.26.193.201:3000/qa/5?count=1000')
+    .then(response => response.json())
+    .then(data => this.setState({questions:data}))
     .catch( (err) => console.log("fetcher Err", err))
   }
 
@@ -119,7 +116,7 @@ class App extends Component {
   }
 
   qaReport(id, target){
-    fetch(`/52.26.193.201:3000/qa/${target}/${id}/report`,
+    fetch(`//52.26.193.201:3000/qa/${target}/${id}/report`,
     {method:'PUT'}
     )
     .then( response=>{this.productFetcher()})
@@ -129,7 +126,7 @@ class App extends Component {
   }
 
   helpSubmit(id, target){
-    fetch(`/52.26.193.201:3000/qa/${target}/${id}/helpful`,
+    fetch(`//52.26.193.201:3000/qa/${target}/${id}/helpful`,
     {method:'PUT'}
     ).then( response=>this.productFetcher())
     .catch(function(e) {
@@ -143,9 +140,9 @@ qaSubmit(submitObj, id, target, event){
   event.preventDefault();
   let url;
   if (target === "answer"){
-    url = `/52.26.193.201:3000/qa/${id}/answers`
+    url = `//52.26.193.201:3000/qa/${id}/answers`
   } else if (target === "question"){
-    url = `/52.26.193.201:3000/qa/${id}`
+    url = `//52.26.193.201:3000/qa/${id}`
   }
   fetch(url,
   {
