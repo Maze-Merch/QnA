@@ -8,11 +8,12 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "server": "nodemon server/index.js",
-    "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
+    "start": "nodemon server/index.js",
+    // "start": "concurrently --kill-others-on-fail \"npm run build\" \"nodemon server/index.js\"",
     "build": "webpack --watch --mode development",
     "lint": "./node_modules/.bin/eslint",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "webpack -d"
   },
   "dependencies": {
     "babel-jest": "^26.0.1",
