@@ -59,7 +59,7 @@ class App extends Component {
   productFetcher(){
     console.log("fetching")
     fetch('/52.26.193.201:3000/qa/5?count=1000')
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {this.setState({questions:data});
       console.log("data", data)})
     .then(console.log("questions", this.state.questions))
