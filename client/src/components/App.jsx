@@ -125,6 +125,7 @@ class App extends Component {
     .then( response=>{this.productFetcher()})
     .catch(function(e) {
       console.error(e.message);
+    })
   }
 
   helpSubmit(id, target){
@@ -133,6 +134,7 @@ class App extends Component {
     ).then( response=>this.productFetcher())
     .catch(function(e) {
       console.error(e.message);
+    })
   }
 
 qaSubmit(submitObj, id, target, event){
@@ -156,6 +158,7 @@ qaSubmit(submitObj, id, target, event){
   .then(response=>{this.productFetcher()})
   .catch(function(e) {
     console.error(e.message);
+  })
 }
 
   render(){
