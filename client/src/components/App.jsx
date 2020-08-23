@@ -116,14 +116,14 @@ class App extends Component {
   }
 
   qaReport(id, target){
-    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/report`,
+    fetch(`//52.26.193.201:3000/qa/${target}/${id}/report`,
     {method:'PUT'}
     )
     .then( response=>{this.productFetcher()})
   }
 
   helpSubmit(id, target){
-    fetch(`http://52.26.193.201:3000/qa/${target}/${id}/helpful`,
+    fetch(`//52.26.193.201:3000/qa/${target}/${id}/helpful`,
     {method:'PUT'}
     ).then( response=>this.productFetcher())
   }
@@ -134,9 +134,9 @@ qaSubmit(submitObj, id, target, event){
   event.preventDefault();
   let url;
   if (target === "answer"){
-    url = `http://52.26.193.201:3000/qa/${id}/answers`
+    url = `//52.26.193.201:3000/qa/${id}/answers`
   } else if (target === "question"){
-    url = `http://52.26.193.201:3000/qa/${id}`
+    url = `//52.26.193.201:3000/qa/${id}`
   }
   fetch(url,
   {
