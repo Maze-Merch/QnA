@@ -7,9 +7,11 @@ When expanded it makes additional data scrollable without adding to the height o
 Module also allows for the addition, updating and reporting of data as well as the ability to upload pictures.
 Created search functionality as well as dynamic highlighting of search text.
 
+#### Originally hosted on a AWS ec2 instance using Docker. Current version is hosted on Heroku for demo purposes.
+
 
 ### Technologies Used
-React, Node, Express, Bootstrap, Moment
+React, Node, Express, Bootstrap, Moment, Docker, AWS, Heroku
 
 ### Screenshot of Q&A
 ![QnA1](/QnA1.png)
