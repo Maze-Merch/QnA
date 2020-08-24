@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production nodemon server/index.js",
+    "start": "nodemon server/index.js",
     "build": "webpack --watch --mode development",
     "lint": "./node_modules/.bin/eslint",
     "test": "jest",
