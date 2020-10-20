@@ -8,6 +8,7 @@ Module also allows for the addition, updating and reporting of data as well as t
 Created search functionality as well as dynamic highlighting of search text.
 
 #### Originally hosted on a AWS ec2 instance using Docker. Current version is hosted on Heroku for demo purposes.
+https://maze-merch-qna.herokuapp.com/
 
 
 ### Technologies Used
