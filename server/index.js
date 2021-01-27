@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3003;
 app.use(cors());
 app.use((req, res, next) => {
   if (req.headers['x-forwarded-proto'] === 'https') {
